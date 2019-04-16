@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,11 +12,14 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private TimeSpan timeSinceStart;
+        private float time;
 
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -62,7 +66,8 @@ namespace LittleStarFish
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            timeSinceStart += gameTime.ElapsedGameTime;
+            time = (int)timeSinceStart.Seconds;
 
             base.Update(gameTime);
         }
@@ -74,7 +79,8 @@ namespace LittleStarFish
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
