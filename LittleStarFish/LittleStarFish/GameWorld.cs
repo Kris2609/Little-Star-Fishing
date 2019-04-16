@@ -12,6 +12,9 @@ namespace LittleStarFish
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         TileSet tileSet = new TileSet();
+        Player player = new Player();
+        private int score;
+        SpriteFont scoreList;
 
         public GameWorld()
         {
@@ -20,6 +23,7 @@ namespace LittleStarFish
             graphics.PreferredBackBufferHeight = 32 + tileSet.Height * 32;
             graphics.PreferredBackBufferWidth = tileSet.Width * 32;
             graphics.ApplyChanges();
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -43,11 +47,13 @@ namespace LittleStarFish
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            //Texture2D player = Content.Load<Texture2D>("player");
+            scoreList = Content.Load<SpriteFont>("ScoreList");
+            //Order of the tiles in the map
             Texture2D water = Content.Load<Texture2D>("water");
             Texture2D ground = Content.Load<Texture2D>("ground");
-            tileSet.AddTexture(water);
             tileSet.AddTexture(ground);
-
+            tileSet.AddTexture(water);
             // TODO: use this.Content to load your game content here
         }
 
@@ -69,7 +75,7 @@ namespace LittleStarFish
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            //player.Update();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -83,7 +89,9 @@ namespace LittleStarFish
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+            //player.draw(spriteBatch);
             tileSet.Draw(spriteBatch);
+            spriteBatch.DrawString(scoreList,$"Score{score}", Vector2.Zero, Color.White);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
