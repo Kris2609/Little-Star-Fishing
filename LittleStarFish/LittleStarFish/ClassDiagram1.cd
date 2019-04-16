@@ -43,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.FreshWaterFish">
-    <Position X="4" Y="3.25" Width="1.5" />
+    <Position X="4" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\Fish\FreshWaterFish.cs</FileName>
@@ -94,7 +94,7 @@
   <Class Name="LittleStarFish.Player">
     <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>

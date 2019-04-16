@@ -7,5 +7,9 @@ namespace LittleStarFish
 {
     public class Bait : GameObject
     {
+        public Bait()
+        {
+
+        }
     }
 }

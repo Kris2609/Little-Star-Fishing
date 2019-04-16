@@ -7,5 +7,10 @@ namespace LittleStarFish
 {
     public class Player : GameObject
     {
+        private int score;
+        public Player()
+        {
+
+        }
     }
 }

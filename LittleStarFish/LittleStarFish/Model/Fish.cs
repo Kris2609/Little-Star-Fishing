@@ -7,5 +7,10 @@ namespace LittleStarFish
 {
     public class Fish : GameObject
     {
+        
+        public Fish(int weight, string name)
+        {
+
+        }
     }
 }
