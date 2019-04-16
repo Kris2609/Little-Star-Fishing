@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LittleStarFish
 {
-    public class Bait
+    public class Bait : GameObject
     {
     }
 }
