@@ -5,7 +5,11 @@ using System.Text;
 
 namespace LittleStarFish
 {
-    public class LivingBait :Bait
+    public class LivingBait : Bait
     {
+        public LivingBait(string name, int weight) :base (true, false, name,weight)
+        {
+            
+        }
     }
 }

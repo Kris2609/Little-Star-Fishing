@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="LittleStarFish.Fish">
-    <Position X="4" Y="2" Width="1.5" />
+    <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Fish.cs</FileName>
@@ -15,28 +15,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Bait">
-    <Position X="6.25" Y="2" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Bait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.LivingBait">
-    <Position X="6.25" Y="3.25" Width="1.5" />
+    <Position X="6.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\Bait\LivingBait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.DeadBait">
-    <Position X="6.25" Y="4.75" Width="1.5" />
+    <Position X="6.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\Bait\DeadBait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.SaltWaterFish">
-    <Position X="4" Y="4.75" Width="1.5" />
+    <Position X="4" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\Fish\SaltWaterFish.cs</FileName>
@@ -92,7 +92,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Player">
-    <Position X="8.5" Y="2" Width="1.5" />
+    <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Player.cs</FileName>
@@ -108,14 +108,14 @@
   <Class Name="LittleStarFish.Hooked">
     <Position X="8.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Hooked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Fishing">
-    <Position X="8.5" Y="3.25" Width="1.5" />
+    <Position X="8.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Fishing.cs</FileName>
     </TypeIdentifier>
   </Class>

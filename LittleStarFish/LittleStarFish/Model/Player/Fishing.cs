@@ -7,5 +7,6 @@ namespace LittleStarFish
 {
     public class Fishing
     {
+        private bool isFishing;
     }
 }

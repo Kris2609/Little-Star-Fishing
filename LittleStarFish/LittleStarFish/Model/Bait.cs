@@ -7,7 +7,7 @@ namespace LittleStarFish
 {
     public class Bait : GameObject
     {
-        public Bait()
+        public Bait(bool isAlive, bool isDead,string name, int weight)
         {
 
         }

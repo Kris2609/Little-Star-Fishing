@@ -7,5 +7,9 @@ namespace LittleStarFish
 {
     public class DeadBait : Bait
     {
+        public DeadBait(string name, int weight) : base(false,true, name, weight)
+        {
+
+        }
     }
 }

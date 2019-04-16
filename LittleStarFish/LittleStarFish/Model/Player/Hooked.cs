@@ -7,5 +7,6 @@ namespace LittleStarFish
 {
     public class Hooked
     {
+        private bool isHooked;
     }
 }
