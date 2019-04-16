@@ -11,11 +11,15 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        TileSet tileSet = new TileSet();
 
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferHeight = 32 + tileSet.Height * 32;
+            graphics.PreferredBackBufferWidth = tileSet.Width * 32;
+            graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -39,6 +43,10 @@ namespace LittleStarFish
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Texture2D water = Content.Load<Texture2D>("water");
+            Texture2D ground = Content.Load<Texture2D>("ground");
+            tileSet.AddTexture(water);
+            tileSet.AddTexture(ground);
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,7 +82,9 @@ namespace LittleStarFish
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
+            tileSet.Draw(spriteBatch);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
