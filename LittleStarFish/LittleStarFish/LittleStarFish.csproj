@@ -46,7 +46,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="DeadBait.cs" />
     <Compile Include="FishingHooked.cs" />
-    <Compile Include="Fisk.cs" />
+    <Compile Include="Fish.cs" />
     <Compile Include="FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameStateHandler.cs" />
