@@ -45,12 +45,13 @@
     <Compile Include="Bruger.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DeadBait.cs" />
-    <Compile Include="FishingHooked.cs" />
-    <Compile Include="Fisk.cs" />
+    <Compile Include="Fishing.cs" />
+    <Compile Include="Fish.cs" />
     <Compile Include="FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameStateHandler.cs" />
     <Compile Include="GameWorld.cs" />
+    <Compile Include="Hooked.cs" />
     <Compile Include="LivingBait.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Model.cs" />
