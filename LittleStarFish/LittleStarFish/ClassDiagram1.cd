@@ -1,122 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="LittleStarFish.Fish">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="4" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Fish.cs</FileName>
+      <FileName>Model\Fish.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.GameObject">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Bait">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Bait.cs</FileName>
+      <FileName>Model\Bait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.LivingBait">
-    <Position X="2.5" Y="1.75" Width="1.5" />
+    <Position X="6.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>LivingBait.cs</FileName>
+      <FileName>Controller\Bait\LivingBait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.DeadBait">
-    <Position X="2.5" Y="3" Width="1.5" />
+    <Position X="6.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DeadBait.cs</FileName>
+      <FileName>Controller\Bait\DeadBait.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.SaltWaterFish">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="4" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SaltWaterFish.cs</FileName>
+      <FileName>Controller\Fish\SaltWaterFish.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.FreshWaterFish">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="4" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FreshWaterFish.cs</FileName>
+      <FileName>Controller\Fish\FreshWaterFish.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Controller">
     <Position X="14.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controller.cs</FileName>
+      <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.View">
     <Position X="14.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>View.cs</FileName>
+      <FileName>View\View.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Model">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model.cs</FileName>
+      <FileName>Model\Model.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.GameStateHandler">
-    <Position X="14.25" Y="3.5" Width="1.5" />
+    <Position X="12.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameStateHandler.cs</FileName>
+      <FileName>View\GameStateHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Menu">
     <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Menu.cs</FileName>
+      <FileName>View\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.TileSet">
     <Position X="12.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TileSet.cs</FileName>
+      <FileName>Model\TileSet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Player">
-    <Position X="4.5" Y="1.75" Width="1.5" />
+    <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
+      <FileName>Model\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Bruger">
     <Position X="12.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Bruger.cs</FileName>
+      <FileName>Model\Bruger.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Hooked">
-    <Position X="4.5" Y="4.25" Width="1.5" />
+    <Position X="8.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Hooked.cs</FileName>
+      <FileName>Model\Player\Hooked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Fishing">
-    <Position X="4.5" Y="3" Width="1.5" />
+    <Position X="8.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Fishing.cs</FileName>
+      <FileName>Model\Player\Fishing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.GameState">
+    <Position X="14.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GameState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
