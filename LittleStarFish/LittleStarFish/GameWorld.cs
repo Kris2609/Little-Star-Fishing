@@ -14,7 +14,7 @@ namespace LittleStarFish
         Texture2D sprite;
         TileSet tileSet = new TileSet();
         Player player;
-        private int score;
+        private int score = 99;
         SpriteFont scoreList;
 
         public GameWorld()
@@ -51,13 +51,14 @@ namespace LittleStarFish
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Player
             Texture2D playertexture = Content.Load<Texture2D>("Fisher_Bob");
-            player = new Player(playertexture); 
+            player = new Player(playertexture, new Vector2(325,50)); 
             scoreList = Content.Load<SpriteFont>("ScoreList");
             //Order of the tiles in the map
             Texture2D water = Content.Load<Texture2D>("water");
             Texture2D ground = Content.Load<Texture2D>("ground");
-            tileSet.AddTexture(ground);
             tileSet.AddTexture(water);
+            tileSet.AddTexture(ground);
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -79,7 +80,9 @@ namespace LittleStarFish
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            
             player.Update(gameTime);
+            
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -95,7 +98,7 @@ namespace LittleStarFish
             spriteBatch.Begin();
             tileSet.Draw(spriteBatch);
             player.Draw(spriteBatch);
-            spriteBatch.DrawString(scoreList,$"Score{score}", Vector2.Zero, Color.White);
+            spriteBatch.DrawString(scoreList,$"Bob Score: {score}", Vector2.Zero, Color.Khaki);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
