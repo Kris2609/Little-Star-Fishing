@@ -14,7 +14,7 @@ namespace LittleStarFish
         Texture2D sprite;
         TileSet tileSet = new TileSet();
         Player player;
-        private int score = 99;
+        private int score = 0;
         SpriteFont scoreList;
 
         public GameWorld()
