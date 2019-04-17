@@ -14,7 +14,7 @@ namespace LittleStarFish
         Texture2D sprite;
         TileSet tileSet = new TileSet();
         Player player;
-        private int score = 99;
+        private int score = 0;
         SpriteFont scoreList;
 
         public GameWorld()
@@ -98,7 +98,7 @@ namespace LittleStarFish
             spriteBatch.Begin();
             tileSet.Draw(spriteBatch);
             player.Draw(spriteBatch);
-            spriteBatch.DrawString(scoreList,$"Bob Score: {score}", Vector2.Zero, Color.Khaki);
+            spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.Khaki);
             spriteBatch.End();
             // TODO: Add your drawing code here
 

@@ -13,6 +13,9 @@ namespace LittleStarFish
         
         private Vector2 position;
         private string name;
+
+        public string Name { get => name; set => name = value; }
+
         public Player(Texture2D playersprite, Vector2 position)
         {
             this.playersprite = playersprite;
