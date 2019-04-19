@@ -9,16 +9,20 @@ namespace LittleStarFish
 {
     public class Player : GameObject
     {
+        private int point;
         private Texture2D playersprite;
-        private Vector2 position = new Vector2(325, 50);
+        private Vector2 position;
+        
         private string name;
 
         public string Name { get => name; set => name = value; }
+        public Vector2 Position { get => position; set => position = value; }
 
         public Player(Texture2D playersprite)
         {
             this.playersprite = playersprite;
             this.name = "Bob";
+            this.position = new Vector2(325, 50);
         }
         
         public void Update(GameTime gameTime)

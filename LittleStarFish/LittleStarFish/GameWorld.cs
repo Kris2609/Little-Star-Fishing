@@ -11,7 +11,7 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D sprite;
+        
         Dock dock = new Dock();
         Sea sea = new Sea();
         Lake lake = new Lake();
