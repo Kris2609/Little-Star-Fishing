@@ -16,6 +16,7 @@ namespace LittleStarFish
         Sea sea = new Sea();
         Lake lake = new Lake();
         Player player;
+        Ship ship;
         private int score = 0;
         SpriteFont scoreList;
 
@@ -52,8 +53,13 @@ namespace LittleStarFish
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Player
-            Texture2D playertexture = Content.Load<Texture2D>("Fisher_Bob");
-            player = new Player(playertexture); 
+            Texture2D shipTexture = Content.Load<Texture2D>("Ship");
+            Texture2D playerTexture = Content.Load<Texture2D>("Fisher_Bob");
+            //Texture2D playerTextureThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
+            //Texture2D playerTextureWithBoat = Content.Load<Texture2D>("Fisher_Bob_Ship_Throwing");
+            //Texture2D playerTextureWithBoatThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
+            player = new Player(playerTexture);
+            ship = new Ship(shipTexture);
             scoreList = Content.Load<SpriteFont>("ScoreList");
             //Order of the tiles in the map
             Texture2D water = Content.Load<Texture2D>("water");
@@ -88,6 +94,7 @@ namespace LittleStarFish
                 Exit();
             
             player.Update(gameTime);
+            ship.Update(gameTime);
             
             // TODO: Add your update logic here
 
@@ -102,10 +109,11 @@ namespace LittleStarFish
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            //lake.Draw(spriteBatch);
-            //dock.Draw(spriteBatch);
+            lake.Draw(spriteBatch);
+            dock.Draw(spriteBatch);
             sea.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            ship.Draw(spriteBatch);
             spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.LightGray);
             spriteBatch.End();
             // TODO: Add your drawing code here

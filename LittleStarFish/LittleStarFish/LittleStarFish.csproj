@@ -53,6 +53,7 @@
     <Compile Include="Controller\Fish\FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Sea.cs" />
+    <Compile Include="Ship.cs" />
     <Compile Include="View\GameState.cs" />
     <Compile Include="View\GameStateHandler.cs" />
     <Compile Include="GameWorld.cs" />

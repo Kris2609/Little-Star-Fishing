@@ -10,7 +10,6 @@ namespace LittleStarFish
     public class Player : GameObject
     {
         private Texture2D playersprite;
-        private int speed;
         private Vector2 position = new Vector2(325, 50);
         private string name;
 
@@ -19,7 +18,6 @@ namespace LittleStarFish
         public Player(Texture2D playersprite)
         {
             this.playersprite = playersprite;
-            this.speed = 5;
             this.name = "Bob";
         }
         

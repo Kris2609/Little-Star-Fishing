@@ -94,7 +94,7 @@
   <Class Name="LittleStarFish.Player">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAAAAIAQAAAAEAQAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAIAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -129,7 +129,7 @@
   <Class Name="LittleStarFish.Sea">
     <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Sea.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -138,6 +138,13 @@
     <TypeIdentifier>
       <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Lake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.Ship">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAIAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
