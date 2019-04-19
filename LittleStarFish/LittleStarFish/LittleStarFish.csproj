@@ -43,6 +43,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Lake.cs" />
     <Compile Include="Model\Bait.cs" />
     <Compile Include="Model\Bruger.cs" />
     <Compile Include="Controller\Controller.cs" />
@@ -51,6 +52,8 @@
     <Compile Include="Model\Fish.cs" />
     <Compile Include="Controller\Fish\FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Sea.cs" />
+    <Compile Include="Ship.cs" />
     <Compile Include="View\GameState.cs" />
     <Compile Include="View\GameStateHandler.cs" />
     <Compile Include="GameWorld.cs" />
@@ -62,7 +65,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\Fish\SaltWaterFish.cs" />
-    <Compile Include="Model\TileSet.cs" />
+    <Compile Include="Model\Dock.cs" />
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>

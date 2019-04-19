@@ -11,9 +11,12 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D sprite;
-        TileSet tileSet = new TileSet();
+        
+        Dock dock = new Dock();
+        Sea sea = new Sea();
+        Lake lake = new Lake();
         Player player;
+        Ship ship;
         private int score = 0;
         SpriteFont scoreList;
 
@@ -21,8 +24,8 @@ namespace LittleStarFish
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 32 + tileSet.Height * 32;
-            graphics.PreferredBackBufferWidth = tileSet.Width * 32;
+            graphics.PreferredBackBufferHeight = dock.Height * 32;
+            graphics.PreferredBackBufferWidth = dock.Width * 32;
             graphics.ApplyChanges();
             IsMouseVisible = true;
         }
@@ -50,15 +53,24 @@ namespace LittleStarFish
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //Player
-            Texture2D playertexture = Content.Load<Texture2D>("Fisher_Bob");
-            player = new Player(playertexture, new Vector2(325,50)); 
+            Texture2D shipTexture = Content.Load<Texture2D>("Ship");
+            Texture2D playerTexture = Content.Load<Texture2D>("Fisher_Bob");
+            //Texture2D playerTextureThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
+            //Texture2D playerTextureWithBoat = Content.Load<Texture2D>("Fisher_Bob_Ship_Throwing");
+            //Texture2D playerTextureWithBoatThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
+            player = new Player(playerTexture);
+            ship = new Ship(shipTexture);
             scoreList = Content.Load<SpriteFont>("ScoreList");
             //Order of the tiles in the map
             Texture2D water = Content.Load<Texture2D>("water");
             Texture2D ground = Content.Load<Texture2D>("ground");
-            tileSet.AddTexture(water);
-            tileSet.AddTexture(ground);
-            
+            Texture2D lakeground = Content.Load<Texture2D>("lakeground");
+            lake.AddTexture(water);
+            lake.AddTexture(lakeground);
+            dock.AddTexture(water);
+            dock.AddTexture(ground);
+            sea.AddTexture(water);
+            sea.AddTexture(ground);
             // TODO: use this.Content to load your game content here
         }
 
@@ -82,6 +94,7 @@ namespace LittleStarFish
                 Exit();
             
             player.Update(gameTime);
+            ship.Update(gameTime);
             
             // TODO: Add your update logic here
 
@@ -96,9 +109,12 @@ namespace LittleStarFish
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            tileSet.Draw(spriteBatch);
+            lake.Draw(spriteBatch);
+            dock.Draw(spriteBatch);
+            sea.Draw(spriteBatch);
             player.Draw(spriteBatch);
-            spriteBatch.DrawString(scoreList,$"Bob Score: {score}", Vector2.Zero, Color.Khaki);
+            ship.Draw(spriteBatch);
+            spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.LightGray);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
