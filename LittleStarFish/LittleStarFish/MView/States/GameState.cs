@@ -36,8 +36,7 @@ namespace LittleStarFish.States
             if (currentState == gameState.Lake)
             {
                 _gameWorld.GraphicsDevice.Clear(Color.Black);
-                lake.Draw(spriteBatch);
-                lake.DrawPlayer(spriteBatch);
+                
                 if (ks.IsKeyDown(Keys.NumPad1))
                 {
                     currentState = gameState.Dock;
