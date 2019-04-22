@@ -112,12 +112,12 @@ namespace LittleStarFish
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            //lake.Draw(spriteBatch);
-            //lake.DrawPlayer(spriteBatch);
+            lake.Draw(spriteBatch);
+            lake.DrawPlayer(spriteBatch);
             dock.Draw(spriteBatch);
             dock.Drawplayer(spriteBatch);
-            //sea.Draw(spriteBatch);
-            //sea.DrawShip(spriteBatch);
+            sea.Draw(spriteBatch);
+            sea.DrawShip(spriteBatch);
             player.Draw(spriteBatch);
             ship.Draw(spriteBatch);
             spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.LightGray);
