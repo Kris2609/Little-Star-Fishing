@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -11,25 +12,25 @@ namespace LittleStarFish
     {
         private int point;
         private Texture2D playersprite;
-        private Vector2 position;
+       
         
         private string name;
 
         public string Name { get => name; set => name = value; }
-        public Vector2 Position { get => position; set => position = value; }
+       
 
-        public Player(Texture2D playersprite)
+        public Player(Texture2D playersprite,string textureName,ContentManager Content,Vector2 position) : base(textureName,Content,position)
         {
             this.playersprite = playersprite;
             this.name = "Bob";
             this.position = new Vector2(325, 50);
         }
         
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
            
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
 
             spriteBatch.Draw(playersprite, position, Color.White);

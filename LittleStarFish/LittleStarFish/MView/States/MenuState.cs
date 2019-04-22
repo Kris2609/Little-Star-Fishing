@@ -17,8 +17,8 @@ namespace LittleStarFish.States
 
         public MenuState(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
-            var buttonTexture = _content.Load<Texture2D>("Controles/Button");
-            var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
+            var buttonTexture = _content.Load<Texture2D>("Button");
+            var buttonFont = _content.Load<SpriteFont>("Font");
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
