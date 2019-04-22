@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Lake.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Model\Bait.cs" />
     <Compile Include="Model\Bruger.cs" />
     <Compile Include="Controller\Controller.cs" />

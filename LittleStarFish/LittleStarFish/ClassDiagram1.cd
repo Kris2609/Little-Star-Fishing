@@ -87,14 +87,14 @@
   <Class Name="LittleStarFish.Dock">
     <Position X="12.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAECAABAAAAiAQAAAAAEAAABAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Model\Dock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Player">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAAAAIAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAACAAAAAAgAgAAAAIAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -129,22 +129,29 @@
   <Class Name="LittleStarFish.Sea">
     <Position X="10.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAABAAAAAgAAQAAAAAAAA=</HashCode>
       <FileName>Sea.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Lake">
     <Position X="10.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAABAgAAiAQAAAAAEAAABAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Lake.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Ship">
     <Position X="1.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAAAAIAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAACAAAAAAgAAAAAAIBAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.Level">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABAAAAiAQAAAAAEAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

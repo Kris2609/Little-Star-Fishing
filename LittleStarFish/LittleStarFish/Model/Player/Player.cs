@@ -10,7 +10,7 @@ namespace LittleStarFish
     public class Player : GameObject
     {
         private int point;
-        private Texture2D playersprite;
+        //private Texture2D playersprite;
         private Vector2 position;
         
         private string name;
@@ -18,11 +18,12 @@ namespace LittleStarFish
         public string Name { get => name; set => name = value; }
         public Vector2 Position { get => position; set => position = value; }
 
-        public Player(Texture2D playersprite)
+        public Player()
         {
-            this.playersprite = playersprite;
+            //this.playersprite = playersprite;
             this.name = "Bob";
-            this.position = new Vector2(325, 50);
+            //this.position = new Vector2(325, 50);
+            
         }
         
         public void Update(GameTime gameTime)
@@ -32,7 +33,7 @@ namespace LittleStarFish
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(playersprite, position, Color.White);
+            //spriteBatch.Draw(playersprite, position, Color.White);
         }
 
     }

@@ -11,10 +11,10 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
-        Dock dock = new Dock();
-        Sea sea = new Sea();
-        Lake lake = new Lake();
+        Level level = new Level();
+        Dock dock;
+        Sea sea;
+        Lake lake;
         Player player;
         Ship ship;
         private int score = 0;
@@ -24,8 +24,8 @@ namespace LittleStarFish
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = dock.Height * 32;
-            graphics.PreferredBackBufferWidth = dock.Width * 32;
+            graphics.PreferredBackBufferHeight = level.Height * 32;
+            graphics.PreferredBackBufferWidth = level.Width * 32;
             graphics.ApplyChanges();
             IsMouseVisible = true;
         }
@@ -56,10 +56,13 @@ namespace LittleStarFish
             Texture2D shipTexture = Content.Load<Texture2D>("Ship");
             Texture2D playerTexture = Content.Load<Texture2D>("Fisher_Bob");
             //Texture2D playerTextureThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
-            //Texture2D playerTextureWithBoat = Content.Load<Texture2D>("Fisher_Bob_Ship_Throwing");
-            //Texture2D playerTextureWithBoatThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
-            player = new Player(playerTexture);
+            Texture2D playerTextureWithBoat = Content.Load<Texture2D>("Fisher_Bob_ship");
+            //Texture2D playerTextureWithBoatThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship_Throwing");
+            player = new Player();
             ship = new Ship(shipTexture);
+            lake = new Lake(playerTexture);
+            dock = new Dock(playerTexture);
+            sea = new Sea(playerTextureWithBoat);
             scoreList = Content.Load<SpriteFont>("ScoreList");
             //Order of the tiles in the map
             Texture2D water = Content.Load<Texture2D>("water");
@@ -109,12 +112,16 @@ namespace LittleStarFish
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            lake.Draw(spriteBatch);
+            //lake.Draw(spriteBatch);
+            //lake.DrawPlayer(spriteBatch);
             dock.Draw(spriteBatch);
-            sea.Draw(spriteBatch);
+            dock.Drawplayer(spriteBatch);
+            //sea.Draw(spriteBatch);
+            //sea.DrawShip(spriteBatch);
             player.Draw(spriteBatch);
             ship.Draw(spriteBatch);
             spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.LightGray);
+            
             spriteBatch.End();
             // TODO: Add your drawing code here
 
