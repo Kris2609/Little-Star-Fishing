@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ namespace LittleStarFish
 {
     public class DeadBait : Bait
     {
-        public DeadBait(string name, int weight) : base(false,true, name, weight)
+        public DeadBait(string textureName,ContentManager Content, Vector2 position) : base(textureName,Content,position)
         {
 
         }

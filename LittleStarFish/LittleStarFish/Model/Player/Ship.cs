@@ -12,20 +12,20 @@ namespace LittleStarFish
     {
         private int point;
         private bool isActive;
-        private Vector2 position;
+        
         private Texture2D sprite;
-        public Ship(Texture2D sprite)
+        public Ship(Texture2D sprite, string textureName,ContentManager Content, Vector2 position) : base(textureName,Content,position)
         {
             this.sprite = sprite;
-            this.position = new Vector2(475, 50);
+            position = new Vector2(475, 50);
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(sprite, position, Color.White);
         }
