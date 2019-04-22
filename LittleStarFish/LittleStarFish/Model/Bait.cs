@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ namespace LittleStarFish
 {
     public class Bait : GameObject
     {
-        public Bait(bool isAlive, bool isDead,string name, int weight)
+        public Bait(string textureName,ContentManager Content,Vector2 position) : base(textureName, Content, position)
         {
 
         }

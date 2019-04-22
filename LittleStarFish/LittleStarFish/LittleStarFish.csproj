@@ -44,6 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Lake.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="Controles\Button.cs" />
     <Compile Include="Model\Bait.cs" />
     <Compile Include="Model\Bruger.cs" />
     <Compile Include="Controller\Controller.cs" />
@@ -59,14 +61,19 @@
     <Compile Include="GameWorld.cs" />
     <Compile Include="Model\Player\Hooked.cs" />
     <Compile Include="Controller\Bait\LivingBait.cs" />
-    <Compile Include="View\Menu.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Player\Player.cs" />
+    <Compile Include="MView\States\LoginState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\Fish\SaltWaterFish.cs" />
     <Compile Include="Model\Dock.cs" />
     <Compile Include="View\View.cs" />
+    <Compile Include="Model\TileSet.cs" />
+    <Compile Include="MView\View.cs" />
+    <Compile Include="MView\States\GameState.cs" />
+    <Compile Include="MView\States\MenuState.cs" />
+    <Compile Include="MView\States\State.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
