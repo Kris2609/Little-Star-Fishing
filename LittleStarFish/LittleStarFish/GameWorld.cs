@@ -37,7 +37,14 @@ namespace LittleStarFish
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = Width;
             graphics.PreferredBackBufferHeight = Height;
-            
+
+
+
+
+
+
+
+
         }
 
         /// <summary>

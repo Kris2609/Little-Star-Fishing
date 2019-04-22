@@ -52,6 +52,9 @@ namespace LittleStarFish
             get { return map.GetLength(0); }
         }
 
+ 
+       
+
         public void Draw(SpriteBatch batch)
         {
             for (int x = 0; x < Width; x++)
