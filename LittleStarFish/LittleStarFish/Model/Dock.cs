@@ -9,6 +9,10 @@ namespace LittleStarFish
 {
     public class Dock
     {
+        private Texture2D sprite;
+
+        public Dock(Texture2D sprite)
+        { this.sprite = sprite; }
         int[,] map = new int[,]
         {
             {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
@@ -67,6 +71,11 @@ namespace LittleStarFish
                     batch.Draw(texture, new Rectangle(x * 32, y * 32, 32,32), Color.White);
                 }
             }
+        }
+        public void Drawplayer(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(sprite, new Vector2(325, 50), Color.White);
+         
         }
     }
 }

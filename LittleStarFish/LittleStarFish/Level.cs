@@ -7,19 +7,13 @@ using System.Text;
 
 namespace LittleStarFish
 {
-    public class Sea
+    public class Level
     {
-        Texture2D sprite;
-        public Sea(Texture2D sprite)
-        {
-            this.sprite = sprite;
-        }
-           
         int[,] map = new int[,]
         {
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
@@ -71,13 +65,8 @@ namespace LittleStarFish
                     }
                     Texture2D texture = tileTextures[textureIndex];
                     batch.Draw(texture, new Rectangle(x * 32, y * 32, 32, 32), Color.White);
-
                 }
             }
-        }
-        public void DrawShip(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(sprite, new Vector2(300, 50), Color.White);
         }
     }
 }
