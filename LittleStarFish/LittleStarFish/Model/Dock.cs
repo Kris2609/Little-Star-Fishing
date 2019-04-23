@@ -11,9 +11,6 @@ namespace LittleStarFish.States
     public class Dock : State
     {
         private Texture2D sprite;
-
-        public Dock(Texture2D sprite)
-        { this.sprite = sprite; }
         int[,] map = new int[,]
         {
             {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
