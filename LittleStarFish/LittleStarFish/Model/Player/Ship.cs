@@ -10,8 +10,6 @@ namespace LittleStarFish
 {
     public class Ship : GameObject
     {
-        private int point;
-        private bool isActive;
         
         private Texture2D sprite;
         public Ship(Texture2D sprite, string textureName,ContentManager Content, Vector2 position) : base(textureName,Content,position)

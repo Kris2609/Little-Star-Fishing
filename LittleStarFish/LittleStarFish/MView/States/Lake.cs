@@ -12,7 +12,6 @@ namespace LittleStarFish.States
     public class Lake : State
     {
         Texture2D _playerTexture;
-        Vector2 playerposition;
         private List<Component> _component;
 
         int[,] map = new int[,]
@@ -75,7 +74,7 @@ namespace LittleStarFish.States
 
             var nextStageButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(500, 160), //position of the traveling boat
+                Position = new Vector2(50, 0), //position of the traveling boat
                 
             };
             nextStageButton.Click += NextStageButton_Click;
