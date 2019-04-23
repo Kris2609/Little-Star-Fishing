@@ -65,7 +65,7 @@ namespace LittleStarFish.States
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             
-            _gameWorld.ChangeState(new GameState(_gameWorld,_graphichsDevice,_content));
+            _gameWorld.ChangeState(new Lake(_gameWorld,_graphichsDevice,_content));
         }
         public override void PostUpdate(GameTime gameTime)
         {
