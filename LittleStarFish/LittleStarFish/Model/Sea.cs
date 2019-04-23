@@ -72,7 +72,7 @@ namespace LittleStarFish.States
 
             var backStageButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(500, 160), //position of the traveling boat
+                Position = Vector2.Zero, //position of the traveling boat
 
             };
             backStageButton.Click += BackStageButton_Click;
@@ -104,7 +104,7 @@ namespace LittleStarFish.States
                 {
                     component.Draw(gameTime, spritebatch);
                 }
-                spritebatch.Draw(_playerTexture, Vector2.Zero, Color.White); //draws the player and his position
+                spritebatch.Draw(_playerTexture, new Vector2(500,500), Color.White); //draws the player and his position
 
             }
             spritebatch.End();
