@@ -1,6 +1,7 @@
 ﻿using System;
 using LittleStarFish.States;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,7 +15,7 @@ namespace LittleStarFish
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private TimeSpan timeSinceStart;
-        
+        Lake lake;
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -37,12 +38,6 @@ namespace LittleStarFish
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = Width;
             graphics.PreferredBackBufferHeight = Height;
-
-
-
-
-
-
 
 
         }
@@ -69,7 +64,8 @@ namespace LittleStarFish
             // Create a new SpriteBatch, which can be used to draw textures.
           
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+           
+            
             _currentState = new MenuState(this,GraphicsDevice,Content);
         }
 
@@ -178,8 +174,8 @@ namespace LittleStarFish
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-           
 
+            GraphicsDevice.Clear(Color.CornflowerBlue);
             _currentState.Draw(gameTime,spriteBatch);
 
             #region States test

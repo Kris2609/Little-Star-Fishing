@@ -43,7 +43,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Model\Lake.cs" />
+    <Compile Include="MView\States\Lake.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Controles\Button.cs" />
     <Compile Include="Model\Bait.cs" />
