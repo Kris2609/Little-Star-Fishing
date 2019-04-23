@@ -12,6 +12,7 @@ namespace LittleStarFish.States
     public class Dock : State
     {
         private Texture2D _playerTexture;
+        private Texture2D Store;
         /// <summary>
         /// DecorationShip 1 - 6
         /// </summary>
@@ -72,6 +73,7 @@ namespace LittleStarFish.States
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
             _playerTexture = content.Load<Texture2D>("Fisher_Bob");
             Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
+            Store = content.Load<Texture2D>("Store");
             //Loads DecorationShips
             {
                 DecorationShip = content.Load<Texture2D>("DecoShip");
@@ -134,6 +136,10 @@ namespace LittleStarFish.States
             {
                 spritebatch.Draw(_playerTexture, new Vector2(325, 150), Color.White);
             }
+            //Draws The store
+            {
+                spritebatch.Draw(Store, new Vector2(20, 70), Color.White);
+            }
             //Draws Decoration ships
             {
                 spritebatch.Draw(DecorationShip, new Vector2(325, 420), Color.White);
@@ -156,6 +162,7 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Lake(_gameWorld, _graphichsDevice, _content));
         }
+        
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
