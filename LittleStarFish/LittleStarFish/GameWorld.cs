@@ -15,16 +15,10 @@ namespace LittleStarFish
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private TimeSpan timeSinceStart;
-        Lake lake;
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-        private int points;
-        public int Points
-        {
-            get { return points; }    
-        }
-
+        
         private State _currentState;
         private State _nextState;
         public void ChangeState(State state)

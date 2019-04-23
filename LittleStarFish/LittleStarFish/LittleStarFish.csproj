@@ -55,7 +55,6 @@
     <Compile Include="Controller\Fish\FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Model\Sea.cs" />
-    <Compile Include="Model\Player\Ship.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="Model\Player\Hooked.cs" />
     <Compile Include="Controller\Bait\LivingBait.cs" />

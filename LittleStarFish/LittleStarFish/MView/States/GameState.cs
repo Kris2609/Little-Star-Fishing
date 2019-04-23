@@ -12,10 +12,8 @@ namespace LittleStarFish.States
 {
     public class GameState : State
     {
-        Lake lake;
-        Dock dock;
-        Sea sea;
-       protected GameWorld _gameWorld;   
+        
+       protected new GameWorld _gameWorld;   
         private enum gameState {Lake, Sea, Dock, EndScreen }
         gameState currentState = gameState.Lake; //set the default state
 
