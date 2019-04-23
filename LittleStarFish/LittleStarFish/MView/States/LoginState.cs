@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace LittleStarFish
+namespace LittleStarFish.MView.States
 {
-    public class Menu
+    class LoginState
     {
     }
 }

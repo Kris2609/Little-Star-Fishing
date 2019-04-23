@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LittleStarFish
 {
-    public class GameStateHandler
+    public class Fish
     {
     }
 }

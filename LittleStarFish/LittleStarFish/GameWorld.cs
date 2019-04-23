@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using LittleStarFish.States;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,23 +14,32 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Level level = new Level();
-        Dock dock;
-        Sea sea;
+        private TimeSpan timeSinceStart;
         Lake lake;
-        Player player;
-        Ship ship;
-        private int score = 0;
-        SpriteFont scoreList;
+        private float time;
+        public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+        private int points;
+        public int Points
+        {
+            get { return points; }    
+        }
+
+        private State _currentState;
+        private State _nextState;
+        public void ChangeState(State state)
+        {
+            _nextState = state;
+        }
 
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = level.Height * 32;
-            graphics.PreferredBackBufferWidth = level.Width * 32;
-            graphics.ApplyChanges();
-            IsMouseVisible = true;
+            graphics.PreferredBackBufferWidth = Width;
+            graphics.PreferredBackBufferHeight = Height;
+
+
         }
 
         /// <summary>
@@ -38,9 +50,8 @@ namespace LittleStarFish
         /// </summary>
         protected override void Initialize()
         {
-
             // TODO: Add your initialization logic here
-            
+            IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -51,30 +62,11 @@ namespace LittleStarFish
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+          
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //Player
-            Texture2D shipTexture = Content.Load<Texture2D>("Ship");
-            Texture2D playerTexture = Content.Load<Texture2D>("Fisher_Bob");
-            //Texture2D playerTextureThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship");
-            Texture2D playerTextureWithBoat = Content.Load<Texture2D>("Fisher_Bob_ship");
-            //Texture2D playerTextureWithBoatThrowing = Content.Load<Texture2D>("Fisher_Bob_Ship_Throwing");
-            player = new Player();
-            ship = new Ship(shipTexture);
-            lake = new Lake(playerTexture);
-            dock = new Dock(playerTexture);
-            sea = new Sea(playerTextureWithBoat);
-            scoreList = Content.Load<SpriteFont>("ScoreList");
-            //Order of the tiles in the map
-            Texture2D water = Content.Load<Texture2D>("water");
-            Texture2D ground = Content.Load<Texture2D>("ground");
-            Texture2D lakeground = Content.Load<Texture2D>("lakeground");
-            lake.AddTexture(water);
-            lake.AddTexture(lakeground);
-            dock.AddTexture(water);
-            dock.AddTexture(ground);
-            sea.AddTexture(water);
-            sea.AddTexture(ground);
-            // TODO: use this.Content to load your game content here
+           
+            
+            _currentState = new MenuState(this,GraphicsDevice,Content);
         }
 
         /// <summary>
@@ -93,14 +85,86 @@ namespace LittleStarFish
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-            
-            player.Update(gameTime);
-            ship.Update(gameTime);
-            
-            // TODO: Add your update logic here
 
+            if(_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+            }
+            _currentState.Update(gameTime);
+            _currentState.PostUpdate(gameTime);
+
+            timeSinceStart += gameTime.ElapsedGameTime;
+            time = (int)timeSinceStart.Seconds;
+
+            #region switschase
+
+            //we use switch case to swap gamestates
+            //switch (currentState)
+            //{
+            //    case GameState.menuScreen:
+            //        {
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad1))
+            //            {
+            //                currentState = GameState.Lake;
+            //            }
+
+            //            break;
+            //            //Change current screen state to lake state
+            //            //only works in menuscreen state
+            //        }
+            //    case GameState.Lake:
+            //        {
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad2) && Points == 1000)
+            //            {
+            //                currentState = GameState.Dock;
+            //            }
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+            //            {
+            //                currentState = GameState.menuScreen;
+            //            }
+            //                break;
+            //            //Change current screen state to dock state
+            //            //only works in lake state
+            //        }
+            //    case GameState.Dock:
+            //        {
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad3) && Points == 3000)
+            //            {
+            //                currentState = GameState.Sea;
+            //            }
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+            //            {
+            //                currentState = GameState.menuScreen;
+            //            }
+            //            break;
+            //            //Change current screen state to sea state
+            //            //only works in dock state
+            //        }
+            //    case GameState.Sea:
+            //        {
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad4) && Points == 10000)
+            //            {
+            //                currentState = GameState.EndScreen;
+            //            }
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+            //            {
+            //                currentState = GameState.menuScreen;
+            //            }
+            //            break;
+            //            //Change current screen state to endscreen state
+            //            //only works in sea state
+            //        }
+            //    case GameState.EndScreen:
+            //        {
+            //            if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+            //                currentState = GameState.menuScreen;
+            //            break;
+            //            //Change current screen state to menu state
+            //            //only works in endscreen state
+            //        }
+            //}
+            #endregion
             base.Update(gameTime);
         }
 
@@ -110,19 +174,36 @@ namespace LittleStarFish
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
-            lake.Draw(spriteBatch);
-            lake.DrawPlayer(spriteBatch);
-            dock.Draw(spriteBatch);
-            dock.Drawplayer(spriteBatch);
-            sea.Draw(spriteBatch);
-            sea.DrawShip(spriteBatch);
-            player.Draw(spriteBatch);
-            ship.Draw(spriteBatch);
-            spriteBatch.DrawString(scoreList,$"{player.Name} Score: {score}", Vector2.Zero, Color.LightGray);
-            
-            spriteBatch.End();
+            _currentState.Draw(gameTime,spriteBatch);
+
+            #region States test
+
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            //spriteBatch.Begin();
+            //if (currentState == GameState.menuScreen)
+            //{
+            //    GraphicsDevice.Clear(Color.Red);
+            //}
+            //if (currentState == GameState.Lake)
+            //{
+            //    GraphicsDevice.Clear(Color.Green);
+            //}
+            //if (currentState == GameState.Dock)
+            //{
+            //    GraphicsDevice.Clear(Color.Brown);
+            //}
+            //if (currentState == GameState.Sea)
+            //{
+            //    GraphicsDevice.Clear(Color.Blue);
+            //}
+            //if (currentState == GameState.EndScreen)
+            //{
+            //    GraphicsDevice.Clear(Color.Black);
+            //}
+            #endregion
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
