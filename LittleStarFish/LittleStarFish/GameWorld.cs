@@ -171,7 +171,7 @@ namespace LittleStarFish
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _currentState.Draw(gameTime,spriteBatch);
-
+            
             #region States test
 
             //GraphicsDevice.Clear(Color.CornflowerBlue);
