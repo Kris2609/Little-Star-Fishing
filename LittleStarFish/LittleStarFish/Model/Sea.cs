@@ -67,7 +67,7 @@ namespace LittleStarFish.States
             Texture2D PalmTree = content.Load<Texture2D>("palme");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
             _playerTexture = content.Load<Texture2D>("Fisher_Bob_ship");
-            Player player = new Player(_playerTexture, "Fisher_Bob_ship", content, new Vector2(325, 50));
+            player = new Player(_playerTexture, "Fisher_Bob_ship", content, new Vector2(325, 50));
             AddTexture(water);
             AddTexture(PalmTree);
             var buttonTexture = _content.Load<Texture2D>("Ship_back");
@@ -115,7 +115,8 @@ namespace LittleStarFish.States
                 spritebatch.Draw(_playerTexture, new Vector2(500,500), Color.White); //draws the player and his position
 
             }
-            
+            spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
+            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
             spritebatch.End();
         }
         private void BackStageButton_Click(object sender, EventArgs e)

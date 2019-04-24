@@ -11,6 +11,8 @@ namespace LittleStarFish.States
 {
     public class Dock : State
     {
+        Player player;
+        SpriteFont Font;
         private Texture2D _playerTexture;
         private Texture2D Store;
         /// <summary>
@@ -72,8 +74,10 @@ namespace LittleStarFish.States
             Texture2D ground = content.Load<Texture2D>("ground");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
             _playerTexture = content.Load<Texture2D>("Fisher_Bob");
-            Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
+            player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
             Store = content.Load<Texture2D>("Store");
+            Font = content.Load<SpriteFont>("Font");
+
             //Loads DecorationShips
             {
                 DecorationShip = content.Load<Texture2D>("DecoShip");
@@ -158,8 +162,9 @@ namespace LittleStarFish.States
                 spritebatch.Draw(DecorationShip, new Vector2(325, 930), Color.White);
                 spritebatch.Draw(DecorationShip, new Vector2(200, 930), Color.White);
             }
-            
-            
+
+            spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
+            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
             spritebatch.End();
         }
         private void NextStageButton_Click(object sender, EventArgs e)
