@@ -88,6 +88,7 @@ namespace LittleStarFish.States
             
             var buttonTexture = _content.Load<Texture2D>("Ship");
             var backbuttonTexture = _content.Load<Texture2D>("Ship_back");
+            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
             var buttonFont = _content.Load<SpriteFont>("Font");
             
             var nextStageButton = new Button(buttonTexture, buttonFont)
@@ -100,12 +101,18 @@ namespace LittleStarFish.States
                 Position = Vector2.Zero, //position of the traveling boat
 
             };
+            var fishingButton = new Button(fishingRodTexture, buttonFont)
+            {
+                Position = new Vector2(100,0) //position of the fishingButton
+            };
             nextStageButton.Click += NextStageButton_Click;
             backStageButton.Click += BackStageButton_Click;
+            fishingButton.Click += FishingButton_Click;
             _component = new List<Component>()
             {
                 nextStageButton,
                 backStageButton,
+                fishingButton,
                 
             };
             
@@ -162,7 +169,10 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Lake(_gameWorld, _graphichsDevice, _content));
         }
-        
+        private void FishingButton_Click(object sender, EventArgs e)
+        {
+            
+        }
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more

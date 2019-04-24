@@ -71,17 +71,22 @@ namespace LittleStarFish.States
             AddTexture(lakeground);
             var buttonTexture = _content.Load<Texture2D>("Ship");
             var buttonFont = _content.Load<SpriteFont>("Font");
+            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
 
             var nextStageButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(50, 0), //position of the traveling boat
                 
             };
+            var fishingButton = new Button(fishingRodTexture, buttonFont)
+            {
+                Position = new Vector2(100, 0) //position of the fishingButton
+            };
             nextStageButton.Click += NextStageButton_Click;
             _component = new List<Component>()
             {
                 nextStageButton,
-                
+                fishingButton,
             };
         }
         
@@ -115,6 +120,10 @@ namespace LittleStarFish.States
         {
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
+        }
+        private void FishingButton_Click(object sender, EventArgs e)
+        {
+
         }
         public override void PostUpdate(GameTime gameTime)
         {
