@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LittleStarFish.Controles;
+using LittleStarFish.MView.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -33,9 +34,15 @@ namespace LittleStarFish.States
                 Text = "Load Game",
             };
             loadGameButton.Click += LoadGameButton_Click;
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var highScorreButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 600),
+                Text = "HighScore",
+            };
+            highScorreButton.Click += highScorreButton_Click;
+            var quitGameButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(300, 800),
                 Text = "Quit",
             };
             quitGameButton.Click += QuitGameButton_Click;
@@ -44,6 +51,7 @@ namespace LittleStarFish.States
             {
                 newGameButton,
                 loadGameButton,
+                highScorreButton,
                 quitGameButton,
             };
         }
@@ -66,6 +74,11 @@ namespace LittleStarFish.States
         {
             
             _gameWorld.ChangeState(new Lake(_gameWorld,_graphichsDevice,_content));
+        }
+        private void highScorreButton_Click(object sender, EventArgs e)
+        {
+
+            _gameWorld.ChangeState(new Highscore(_gameWorld, _graphichsDevice, _content));
         }
         public override void PostUpdate(GameTime gameTime)
         {

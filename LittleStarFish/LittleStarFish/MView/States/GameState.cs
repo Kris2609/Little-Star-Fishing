@@ -12,10 +12,7 @@ namespace LittleStarFish.States
 {
     public class GameState : State
     {
-        Lake lake;
-        Dock dock;
-        Sea sea;
-       protected GameWorld _gameWorld;   
+       protected new GameWorld _gameWorld;   
         private enum gameState {Lake, Sea, Dock, EndScreen }
         gameState currentState = gameState.Lake; //set the default state
 
@@ -36,7 +33,6 @@ namespace LittleStarFish.States
             if (currentState == gameState.Lake)
             {
                 _gameWorld.GraphicsDevice.Clear(Color.Black);
-                
                 if (ks.IsKeyDown(Keys.NumPad1))
                 {
                     currentState = gameState.Dock;
