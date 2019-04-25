@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,9 +122,14 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
+            KeyboardState ks = Keyboard.GetState();
             foreach (var component in _component)
             {
                 component.Update(gameTime);
+            }
+            if (ks.IsKeyDown(Keys.Escape))
+            {
+                _gameWorld.ChangeState(new MenuState(_gameWorld, _graphichsDevice, _content));
             }
         }
     }
