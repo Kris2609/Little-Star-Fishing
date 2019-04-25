@@ -12,8 +12,6 @@ namespace LittleStarFish.States
 {
     public class GameState : State
     {
-        Player player;
-        private SpriteFont Font;
        protected new GameWorld _gameWorld;   
         private enum gameState {Lake, Sea, Dock, EndScreen }
         gameState currentState = gameState.Lake; //set the default state
@@ -23,13 +21,11 @@ namespace LittleStarFish.States
         public GameState(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             _gameWorld = gameWorld;
-            
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             #region States test
-           
             KeyboardState ks = Keyboard.GetState();
             _gameWorld.GraphicsDevice.Clear(Color.Black);
             
@@ -37,7 +33,6 @@ namespace LittleStarFish.States
             if (currentState == gameState.Lake)
             {
                 _gameWorld.GraphicsDevice.Clear(Color.Black);
-                
                 if (ks.IsKeyDown(Keys.NumPad1))
                 {
                     currentState = gameState.Dock;
