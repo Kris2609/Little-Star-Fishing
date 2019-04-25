@@ -12,6 +12,8 @@ namespace LittleStarFish.States
 {
     public class Dock : State
     {
+        Player player;
+        SpriteFont Font;
         private Texture2D _playerTexture;
         private Texture2D Store;
         /// <summary>
@@ -26,23 +28,23 @@ namespace LittleStarFish.States
         private List<Component> _component;
         int[,] map = new int[,]
         {
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 
 
         };
@@ -73,8 +75,10 @@ namespace LittleStarFish.States
             Texture2D ground = content.Load<Texture2D>("ground");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
             _playerTexture = content.Load<Texture2D>("Fisher_Bob");
-            Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
+            player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
             Store = content.Load<Texture2D>("Store");
+            Font = content.Load<SpriteFont>("Font");
+
             //Loads DecorationShips
             {
                 DecorationShip = content.Load<Texture2D>("DecoShip");
@@ -89,6 +93,7 @@ namespace LittleStarFish.States
             
             var buttonTexture = _content.Load<Texture2D>("Ship");
             var backbuttonTexture = _content.Load<Texture2D>("Ship_back");
+            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
             var buttonFont = _content.Load<SpriteFont>("Font");
             
             var nextStageButton = new Button(buttonTexture, buttonFont)
@@ -101,21 +106,29 @@ namespace LittleStarFish.States
                 Position = Vector2.Zero, //position of the traveling boat
 
             };
+            var fishingButton = new Button(fishingRodTexture, buttonFont)
+            {
+                Position = new Vector2(100, 0) //position of the fishingButton
+                
+            };
             nextStageButton.Click += NextStageButton_Click;
             backStageButton.Click += BackStageButton_Click;
+            fishingButton.Click += FishingButton_Click;
             _component = new List<Component>()
             {
                 nextStageButton,
                 backStageButton,
+                fishingButton,
                 
             };
-            
 
+            
         }
 
         public override void Draw(GameTime gameTime,SpriteBatch spritebatch)
         {
             spritebatch.Begin();
+            
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
@@ -151,6 +164,8 @@ namespace LittleStarFish.States
                 spritebatch.Draw(DecorationShip, new Vector2(200, 930), Color.White);
             }
 
+            spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
+            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
             spritebatch.End();
         }
         private void NextStageButton_Click(object sender, EventArgs e)
@@ -163,7 +178,11 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Lake(_gameWorld, _graphichsDevice, _content));
         }
-        
+                
+        private void FishingButton_Click(object sender, EventArgs e)
+        {
+            
+        }
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
@@ -171,16 +190,16 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
-            KeyboardState ks = Keyboard.GetState();
-            
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                _gameWorld.ChangeState(new MenuState(_gameWorld, _graphichsDevice, _content));
+            }
+
             foreach (var component in _component)
             {
                 component.Update(gameTime);
             }
-            if (ks.IsKeyDown(Keys.Escape))
-            {
-                _gameWorld.ChangeState(new MenuState(_gameWorld, _graphichsDevice, _content));
-            }
+            
         }
         
     }
