@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LittleStarFish.Controles;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,14 +9,16 @@ using System.Text;
 
 namespace LittleStarFish.States
 {
-    public class Sea : State
+    public class Dock : State
     {
+        Texture2D _playerTexture;
+        private List<Component> _component;
         int[,] map = new int[,]
         {
+            {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
@@ -52,19 +55,32 @@ namespace LittleStarFish.States
         {
             get { return map.GetLength(0); }
         }
-
-        public Sea(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
+        public Dock(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             Texture2D water = content.Load<Texture2D>("water");
             Texture2D ground = content.Load<Texture2D>("ground");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
-            Texture2D _playerTexture = content.Load<Texture2D>("Fisher_Bob");
+             _playerTexture = content.Load<Texture2D>("Fisher_Bob");
             Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
             AddTexture(water);
             AddTexture(ground);
+            var buttonTexture = _content.Load<Texture2D>("Ship");
+            var buttonFont = _content.Load<SpriteFont>("Font");
 
+            var nextStageButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(300, 200),
+
+            };
+            nextStageButton.Click += NextStageButton_Click;
+            _component = new List<Component>()
+            {
+                nextStageButton,
+
+            };
 
         }
+
         public override void Draw(GameTime gameTime,SpriteBatch spritebatch)
         {
             spritebatch.Begin();
@@ -78,10 +94,20 @@ namespace LittleStarFish.States
                         continue;
                     }
                     Texture2D texture = tileTextures[textureIndex];
-                    spritebatch.Draw(texture, new Rectangle(x * 32, y * 32, 32, 32), Color.White);
+                    spritebatch.Draw(texture, new Rectangle(x * 32, y * 32, 32,32), Color.White);
                 }
             }
+            foreach (var component in _component)
+            {
+                component.Draw(gameTime, spritebatch);
+            }
+            spritebatch.Draw(_playerTexture, new Vector2(200, 50), Color.White);
             spritebatch.End();
+        }
+        private void NextStageButton_Click(object sender, EventArgs e)
+        {
+
+            _gameWorld.ChangeState(new Sea(_gameWorld, _graphichsDevice, _content));
         }
         public override void PostUpdate(GameTime gameTime)
         {
@@ -90,7 +116,10 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
-
+            foreach (var component in _component)
+            {
+                component.Update(gameTime);
+            }
         }
     }
 }

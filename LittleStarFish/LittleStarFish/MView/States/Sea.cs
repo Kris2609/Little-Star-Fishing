@@ -8,14 +8,15 @@ using System.Text;
 
 namespace LittleStarFish.States
 {
-    public class Dock : State
+    public class Sea : State
     {
+        Texture2D _playerTexture;
         int[,] map = new int[,]
         {
-            {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,},
+            {0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,},
+            {0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
@@ -52,19 +53,19 @@ namespace LittleStarFish.States
         {
             get { return map.GetLength(0); }
         }
-        public Dock(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
+
+        public Sea(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             Texture2D water = content.Load<Texture2D>("water");
             Texture2D ground = content.Load<Texture2D>("ground");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
-            Texture2D _playerTexture = content.Load<Texture2D>("Fisher_Bob");
+            _playerTexture = content.Load<Texture2D>("Fisher_Bob");
             Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
             AddTexture(water);
             AddTexture(ground);
 
 
         }
-
         public override void Draw(GameTime gameTime,SpriteBatch spritebatch)
         {
             spritebatch.Begin();
@@ -78,9 +79,10 @@ namespace LittleStarFish.States
                         continue;
                     }
                     Texture2D texture = tileTextures[textureIndex];
-                    spritebatch.Draw(texture, new Rectangle(x * 32, y * 32, 32,32), Color.White);
+                    spritebatch.Draw(texture, new Rectangle(x * 32, y * 32, 32, 32), Color.White);
                 }
             }
+            spritebatch.Draw(_playerTexture, new Vector2(200, 50), Color.White);
             spritebatch.End();
         }
         public override void PostUpdate(GameTime gameTime)
