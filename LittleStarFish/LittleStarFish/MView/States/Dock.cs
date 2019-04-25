@@ -12,26 +12,37 @@ namespace LittleStarFish.States
 {
     public class Dock : State
     {
-        Texture2D _playerTexture;
+        private Texture2D _playerTexture;
+        private Texture2D Store;
+        /// <summary>
+        /// DecorationShip 1 - 6
+        /// </summary>
+        private Texture2D DecorationShip;
+        private Texture2D DecorationShip2;
+        private Texture2D DecorationShip3;
+        private Texture2D DecorationShip4;
+        private Texture2D DecorationShip5;
+        private Texture2D DecorationShip6;
         private List<Component> _component;
         int[,] map = new int[,]
         {
-            {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
-
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
+            {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,},
 
 
         };
@@ -61,24 +72,44 @@ namespace LittleStarFish.States
             Texture2D water = content.Load<Texture2D>("water");
             Texture2D ground = content.Load<Texture2D>("ground");
             Texture2D lakeground = content.Load<Texture2D>("lakeground");
-             _playerTexture = content.Load<Texture2D>("Fisher_Bob");
+            _playerTexture = content.Load<Texture2D>("Fisher_Bob");
             Player player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(325, 50));
+            Store = content.Load<Texture2D>("Store");
+            //Loads DecorationShips
+            {
+                DecorationShip = content.Load<Texture2D>("DecoShip");
+                DecorationShip2 = content.Load<Texture2D>("DecoShip");
+                DecorationShip3 = content.Load<Texture2D>("DecoShip");
+                DecorationShip4 = content.Load<Texture2D>("DecoShip");
+                DecorationShip5 = content.Load<Texture2D>("DecoShip");
+                DecorationShip6 = content.Load<Texture2D>("DecoShip");
+            }
             AddTexture(water);
             AddTexture(ground);
+            
             var buttonTexture = _content.Load<Texture2D>("Ship");
+            var backbuttonTexture = _content.Load<Texture2D>("Ship_back");
             var buttonFont = _content.Load<SpriteFont>("Font");
-
+            
             var nextStageButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
+                Position = new Vector2(50, 0), //position of the traveling boat
+
+            };
+            var backStageButton = new Button(backbuttonTexture, buttonFont)
+            {
+                Position = Vector2.Zero, //position of the traveling boat
 
             };
             nextStageButton.Click += NextStageButton_Click;
+            backStageButton.Click += BackStageButton_Click;
             _component = new List<Component>()
             {
                 nextStageButton,
-
+                backStageButton,
+                
             };
+            
 
         }
 
@@ -95,14 +126,31 @@ namespace LittleStarFish.States
                         continue;
                     }
                     Texture2D texture = tileTextures[textureIndex];
-                    spritebatch.Draw(texture, new Rectangle(x * 32, y * 32, 32,32), Color.White);
+                    spritebatch.Draw(texture, new Rectangle(x * 64, y * 64, 64,64), Color.White);
                 }
             }
             foreach (var component in _component)
             {
                 component.Draw(gameTime, spritebatch);
             }
-            spritebatch.Draw(_playerTexture, new Vector2(200, 50), Color.White);
+            //draws the player and his position
+            {
+                spritebatch.Draw(_playerTexture, new Vector2(325, 150), Color.White);
+            }
+            //Draws The store
+            {
+                spritebatch.Draw(Store, new Vector2(20, 70), Color.White);
+            }
+            //Draws Decoration ships
+            {
+                spritebatch.Draw(DecorationShip, new Vector2(325, 420), Color.White);
+                spritebatch.Draw(DecorationShip, new Vector2(325, 530), Color.White);
+                spritebatch.Draw(DecorationShip, new Vector2(325, 670), Color.White);
+                spritebatch.Draw(DecorationShip, new Vector2(325, 790), Color.White);
+                spritebatch.Draw(DecorationShip, new Vector2(325, 930), Color.White);
+                spritebatch.Draw(DecorationShip, new Vector2(200, 930), Color.White);
+            }
+
             spritebatch.End();
         }
         private void NextStageButton_Click(object sender, EventArgs e)
@@ -110,6 +158,12 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Sea(_gameWorld, _graphichsDevice, _content));
         }
+        private void BackStageButton_Click(object sender, EventArgs e)
+        {
+
+            _gameWorld.ChangeState(new Lake(_gameWorld, _graphichsDevice, _content));
+        }
+        
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
@@ -128,5 +182,6 @@ namespace LittleStarFish.States
                 _gameWorld.ChangeState(new MenuState(_gameWorld, _graphichsDevice, _content));
             }
         }
+        
     }
 }
