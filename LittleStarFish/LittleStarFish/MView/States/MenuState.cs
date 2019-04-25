@@ -68,7 +68,7 @@ namespace LittleStarFish.States
         }
         private void LoadGameButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Load game");
+            _gameWorld.ChangeState(new Sea(_gameWorld, _graphichsDevice, _content));
         }
         private void NewGameButton_Click(object sender, EventArgs e)
         {
