@@ -18,6 +18,7 @@ namespace LittleStarFish
             bait = new Bait();
             //model.highscoreStructure();
             //model.fillHighscoreTable();
+            
             //bait.baitStructure();
             //bait.fillBaitTable();
 
