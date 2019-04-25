@@ -79,9 +79,9 @@ namespace LittleStarFish.States
                             {
                                 currentState = gameState.Dock;
                             }
-                            if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+                            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                             {
-                                //go to menu or quit
+                            
                             }
                             break;
                             //Change current screen state to dock state
