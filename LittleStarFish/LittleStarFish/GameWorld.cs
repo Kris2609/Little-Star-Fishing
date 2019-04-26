@@ -12,6 +12,7 @@ namespace LittleStarFish
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         TileSet tileSet = new TileSet();
+        Hooked hooked = new Hooked();
         Player player = new Player();
         private int score;
         SpriteFont scoreList;
@@ -47,6 +48,7 @@ namespace LittleStarFish
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            hooked.LoadContent(Content);
             //Texture2D player = Content.Load<Texture2D>("player");
             scoreList = Content.Load<SpriteFont>("ScoreList");
             //Order of the tiles in the map
@@ -77,7 +79,7 @@ namespace LittleStarFish
                 Exit();
             //player.Update();
             // TODO: Add your update logic here
-
+            hooked.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -91,6 +93,7 @@ namespace LittleStarFish
             spriteBatch.Begin();
             //player.draw(spriteBatch);
             tileSet.Draw(spriteBatch);
+            hooked.Draw(spriteBatch);
             spriteBatch.DrawString(scoreList,$"Score{score}", Vector2.Zero, Color.White);
             spriteBatch.End();
             // TODO: Add your drawing code here
