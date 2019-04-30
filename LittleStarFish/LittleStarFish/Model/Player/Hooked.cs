@@ -62,7 +62,7 @@ namespace LittleStarFish
                if (Keyboard.GetState().IsKeyDown(Keys.F))
             {
                 hookingfish = true;
-                HP = 430;
+                HP = 400;
                 position = new Vector2(200, 300);
                 hookposition = new Vector2(200, 250);
                 hittop = true;
@@ -118,7 +118,7 @@ namespace LittleStarFish
             }
             if (wasfishingsucsesful == true)
             {
-                //score added when murce
+                
             }
 
 
@@ -129,9 +129,10 @@ namespace LittleStarFish
         {
             if (hookingfish == true)
             {
+                spriteBatch.Begin();
              spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(hooktexture, hookposition, Color.White);
-
+                spriteBatch.End();
             }
             
         }

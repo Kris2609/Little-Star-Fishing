@@ -29,7 +29,7 @@ namespace LittleStarFish.MView.States
         {
             
             spritebatch.Begin();
-            spritebatch.DrawString(textFont,controller.getBait(), Vector2.Zero, Color.Black);
+            spritebatch.DrawString(textFont,controller.getHighscore(), Vector2.Zero, Color.Black);
             spritebatch.End();
         }
         public override void PostUpdate(GameTime gameTime)

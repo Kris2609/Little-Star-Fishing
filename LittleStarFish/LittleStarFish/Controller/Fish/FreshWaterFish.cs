@@ -7,9 +7,9 @@ using System.Text;
 
 namespace LittleStarFish
 {
-    public class FreshWaterFish : Fish
+    public class FreshWaterFish 
     {
-        public FreshWaterFish(string textureName, ContentManager Content, Vector2 position) : base(textureName, Content, position)
+        public FreshWaterFish()
         {
 
         }

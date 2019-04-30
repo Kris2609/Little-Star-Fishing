@@ -16,11 +16,11 @@ namespace LittleStarFish
         {
             model = new Model();
             bait = new Bait();
-            //model.highscoreStructure();
+            model.highscoreStructure();
             //model.fillHighscoreTable();
             
-            //bait.baitStructure();
-            //bait.fillBaitTable();
+            bait.baitStructure();
+            bait.fillBaitTable();
 
 
         }

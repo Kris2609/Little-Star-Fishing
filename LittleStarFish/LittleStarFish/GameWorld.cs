@@ -15,7 +15,7 @@ namespace LittleStarFish
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private TimeSpan timeSinceStart;
-        
+        Hooked hooked = new Hooked();
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -60,7 +60,7 @@ namespace LittleStarFish
             // Create a new SpriteBatch, which can be used to draw textures.
           
             spriteBatch = new SpriteBatch(GraphicsDevice);
-           
+            hooked.LoadContent(Content);
             
             _currentState = new MenuState(this,GraphicsDevice,Content);
         }
@@ -89,7 +89,7 @@ namespace LittleStarFish
             }
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
-
+            hooked.Update(gameTime);
             timeSinceStart += gameTime.ElapsedGameTime;
             time = (int)timeSinceStart.Seconds;
 
@@ -173,7 +173,7 @@ namespace LittleStarFish
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _currentState.Draw(gameTime,spriteBatch);
-            
+            hooked.Draw(spriteBatch);
             #region States test
 
             //GraphicsDevice.Clear(Color.CornflowerBlue);
