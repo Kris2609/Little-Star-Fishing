@@ -28,21 +28,16 @@ namespace LittleStarFish.States
             };
             newGameButton.Click += NewGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 400),
-                Text = "Load Game",
-            };
-            loadGameButton.Click += LoadGameButton_Click;
+            
             var highScorreButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 600),
+                Position = new Vector2(300, 400),
                 Text = "HighScore",
             };
             highScorreButton.Click += highScorreButton_Click;
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 800),
+                Position = new Vector2(300, 600),
                 Text = "Quit",
             };
             quitGameButton.Click += QuitGameButton_Click;
@@ -50,7 +45,7 @@ namespace LittleStarFish.States
             _component = new List<Component>()
             {
                 newGameButton,
-                loadGameButton,
+                
                 highScorreButton,
                 quitGameButton,
             };
@@ -66,10 +61,7 @@ namespace LittleStarFish.States
             }
             spriteBatch.End();
         }
-        private void LoadGameButton_Click(object sender, EventArgs e)
-        {
-            _gameWorld.ChangeState(new Sea(_gameWorld, _graphichsDevice, _content));
-        }
+        
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             
