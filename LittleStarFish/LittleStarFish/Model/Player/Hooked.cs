@@ -10,7 +10,8 @@ namespace LittleStarFish
 {
     public class Hooked
     {
-        
+        private Controller controller = new Controller();
+        public int score;
         private static Vector2 position = new Vector2(200,300);
         private static Vector2 hookposition = new Vector2(200, 250);
         private static Texture2D texture;
@@ -22,11 +23,13 @@ namespace LittleStarFish
         public int HP { get; set; }
         private int speed;
         private bool hittop;
+        SpriteFont Font;
         public void LoadContent(ContentManager Content)
         {
             texture = Content.Load<Texture2D>("hooking");
             hooktexture = Content.Load<Texture2D>("hook");
-            HP = 430;
+            Font = Content.Load<SpriteFont>("Font");
+            HP = 200;
         }
         
         public void Moveup(GameTime gametime)
@@ -62,7 +65,7 @@ namespace LittleStarFish
                if (Keyboard.GetState().IsKeyDown(Keys.F))
             {
                 hookingfish = true;
-                HP = 400;
+                HP = 200;
                 position = new Vector2(200, 300);
                 hookposition = new Vector2(200, 250);
                 hittop = true;
@@ -119,6 +122,12 @@ namespace LittleStarFish
             if (wasfishingsucsesful == true)
             {
                 
+                Random random = new Random();
+                int id = random.Next(1, 8);
+                int x = 0;
+                int.TryParse(controller.getFish(id), out x);
+                score += x;
+                wasfishingsucsesful = false;
             }
 
 
@@ -127,14 +136,17 @@ namespace LittleStarFish
 
             public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
+            spriteBatch.DrawString(Font,"score :" + score, new Vector2(2, 2), Color.White);
             if (hookingfish == true)
             {
-                spriteBatch.Begin();
+                
              spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(hooktexture, hookposition, Color.White);
-                spriteBatch.End();
+                
+                
             }
-            
+            spriteBatch.End();
         }
     }
 }

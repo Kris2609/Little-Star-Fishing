@@ -43,6 +43,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MView\States\EndScreen.cs" />
     <Compile Include="MView\States\Highscore.cs" />
     <Compile Include="MView\States\Lake.cs" />
     <Compile Include="Component.cs" />

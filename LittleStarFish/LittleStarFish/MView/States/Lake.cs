@@ -1,4 +1,5 @@
 ﻿using LittleStarFish.Controles;
+using LittleStarFish.MView.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,6 +17,8 @@ namespace LittleStarFish.States
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
+        Hooked hooked = new Hooked();
+        
         private List<Component> _component;
         
 
@@ -84,11 +87,12 @@ namespace LittleStarFish.States
                 Position = new Vector2(50, 0), //position of the traveling boat
                 
             };
+            nextStageButton.Click += NextStageButton_Click;
             var fishingButton = new Button(fishingRodTexture, buttonFont)
             {
                 Position = new Vector2(100, 0) //position of the fishingButton
             };
-            nextStageButton.Click += NextStageButton_Click;
+            fishingButton.Click += FishingButton_Click;
             _component = new List<Component>()
             {
                 nextStageButton,
@@ -121,6 +125,7 @@ namespace LittleStarFish.States
             spritebatch.Draw(_playerTexture,new Vector2(450,80), Color.White); //draws the player and his position
             spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
             spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
+            hooked.Draw(spritebatch);
             spritebatch.End();
         }
         private void NextStageButton_Click(object sender, EventArgs e)
@@ -131,7 +136,9 @@ namespace LittleStarFish.States
 
         private void FishingButton_Click(GameTime gameTime,object sender, EventArgs e)
         {
-            
+
+           
+
         }
         
         public override void PostUpdate(GameTime gameTime)
@@ -142,16 +149,17 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
+            hooked.Fishing(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                _gameWorld.ChangeState(new MenuState(_gameWorld,_graphichsDevice,_content));
+                _gameWorld.ChangeState(new EndScreen(_gameWorld,_graphichsDevice,_content));
             }
             
             foreach (var component in _component)
             {
                 component.Update(gameTime);
             }
-            
+           
         }
     }
 }

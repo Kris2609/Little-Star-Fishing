@@ -39,7 +39,7 @@ namespace LittleStarFish
         }
         public String getHighscore()
         {
-            String sqlexpHeigscore = "SELECT * FROM highscores;";
+            String sqlexpHeigscore = "SELECT * FROM highscores ORDER BY score DESC;";
             SQLiteCommand cmd = new SQLiteCommand(sqlexpHeigscore, m_dbConnection)
             {
                 CommandText = sqlexpHeigscore

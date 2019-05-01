@@ -19,8 +19,7 @@ namespace LittleStarFish
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-        
-
+     
         private State _currentState;
         private State _nextState;
         public void ChangeState(State state)
