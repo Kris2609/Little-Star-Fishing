@@ -12,13 +12,13 @@ namespace LittleStarFish
     {
         private int point;
         private Texture2D playersprite;
-       
+        public int score;
         
         private string name;
 
         public string Name { get => name; set => name = value; }
        
-
+        
         public Player(Texture2D playersprite,string textureName,ContentManager Content,Vector2 position) : base(textureName,Content,position)
         {
             this.playersprite = playersprite;

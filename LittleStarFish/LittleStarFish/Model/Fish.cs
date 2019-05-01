@@ -19,36 +19,36 @@ namespace LittleStarFish
             m_dbConnection = new SQLiteConnection(CONNECTIONSTRING);
             m_dbConnection.Open();
         }
-        public void baitStructure()
+        public void fishStructure()
         {
-            string sql = "CREATE TABLE IF NOT EXISTS fish (name VARCHAR(40), score INT,)";
+            string sql = "CREATE TABLE IF NOT EXISTS fish (id INT, name VARCHAR(40), score INT)";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
         }
-        public void fillBaitTable()
+        public void fillfishTable()
         {
             SQLiteCommand cmd = m_dbConnection.CreateCommand();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Brasen', 20)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(1,'Brasen', 20)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Sterlet', 50)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(2,'Sterlet', 50)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Sturgeon', 40)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(3,'Sturgeon', 40)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Bighead carp', 30)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(4,'Bighead carp', 30)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('White bream', 40)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(5,'White bream', 40)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Goldfish', 30)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(6,'Goldfish', 30)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Bullhead', 30)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(7,'Bullhead', 30)";
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "INSERT INTO bait (name, score) VALUES('Gudgeon', 50)";
+            cmd.CommandText = "INSERT INTO fish (id, name, score) VALUES(8,'Gudgeon', 50)";
             cmd.ExecuteNonQuery();
 
         }
-        public String getfish()
+        public String getscore(int id)
         {
-            String sqlexpFish = "SELECT * FROM fish;";
+            String sqlexpFish = "SELECT score FROM fish WHERE id ='" + id + "';" ;
             SQLiteCommand cmd = new SQLiteCommand(sqlexpFish, m_dbConnection)
             {
                 CommandText = sqlexpFish
@@ -60,7 +60,7 @@ namespace LittleStarFish
             String sqlFish = "";
             while (reader.Read())
             {
-                sqlFish += "Name: " + reader["name"] + " " + "Score:" + reader["score"] + Environment.NewLine;
+                sqlFish += reader["score"];
             }
             return sqlFish;
         }
