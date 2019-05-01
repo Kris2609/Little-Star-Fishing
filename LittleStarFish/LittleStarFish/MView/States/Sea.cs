@@ -1,4 +1,5 @@
 ﻿using LittleStarFish.Controles;
+using LittleStarFish.MView.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,6 +16,7 @@ namespace LittleStarFish.States
         SpriteFont Font;
         Texture2D _playerTexture;
         Player player;
+        Hooked hooked = new Hooked();
         private List<Component> _component;
         int[,] map = new int[,]
         {
@@ -116,6 +118,7 @@ namespace LittleStarFish.States
                 spritebatch.Draw(_playerTexture, new Vector2(500,500), Color.White); //draws the player and his position
 
             }
+            hooked.Draw(spritebatch);
             spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
             spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
             spritebatch.End();
@@ -137,9 +140,10 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
+            hooked.Fishing(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                _gameWorld.ChangeState(new MenuState(_gameWorld, _graphichsDevice, _content));
+                _gameWorld.ChangeState(new EndScreen(_gameWorld, _graphichsDevice, _content));
             }
 
             foreach (var component in _component)

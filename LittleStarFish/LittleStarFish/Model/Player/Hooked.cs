@@ -51,7 +51,7 @@ namespace LittleStarFish
                return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             }
         }
-        public void Update(GameTime gameTime)
+        public void Fishing(GameTime gameTime)
         {
             if (CollisionBox.Intersects(CollisionBoxhook))
             {
@@ -59,26 +59,26 @@ namespace LittleStarFish
             }
             if (hookingfish == false)
             {
-               if (Keyboard.GetState().IsKeyDown(Keys.F))
-            {
-                hookingfish = true;
-                HP = 400;
-                position = new Vector2(200, 300);
-                hookposition = new Vector2(200, 250);
-                hittop = true;
-                timer = 10;
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    hookingfish = true;
+                    HP = 400;
+                    position = new Vector2(200, 300);
+                    hookposition = new Vector2(200, 250);
+                    hittop = true;
+                    timer = 10;
+                }
             }
-            }
-           
+
             if (hookingfish == true)
             {
                 if (Keyboard.GetState().IsKeyUp(Keys.W))
                 {
-                hookposition.Y += 2;
+                    hookposition.Y += 2;
                 }
                 if (Keyboard.GetState().IsKeyUp(Keys.S))
                 {
-                hookposition.Y -= 2;
+                    hookposition.Y -= 2;
                 }
 
                 if (hittop == true)
@@ -108,7 +108,7 @@ namespace LittleStarFish
                 {
                     wasfishingsucsesful = true;
                     hookingfish = false;
-                    
+
                 }
                 if (timer == 0)
                 {
@@ -118,10 +118,12 @@ namespace LittleStarFish
             }
             if (wasfishingsucsesful == true)
             {
-                
+
             }
-
-
+        }
+        public void Update(GameTime gameTime)
+        {
+            
             
         }
 
@@ -129,10 +131,10 @@ namespace LittleStarFish
         {
             if (hookingfish == true)
             {
-                spriteBatch.Begin();
+               
              spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(hooktexture, hookposition, Color.White);
-                spriteBatch.End();
+               
             }
             
         }
