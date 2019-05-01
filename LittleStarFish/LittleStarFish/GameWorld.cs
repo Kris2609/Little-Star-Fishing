@@ -61,7 +61,7 @@ namespace LittleStarFish
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hooked.LoadContent(Content);
             
-            _currentState = new MenuState(this,GraphicsDevice,Content);
+            _currentState = new Login(this,GraphicsDevice,Content);
         }
 
         /// <summary>

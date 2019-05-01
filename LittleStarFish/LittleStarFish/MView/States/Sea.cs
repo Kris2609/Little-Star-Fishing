@@ -75,22 +75,19 @@ namespace LittleStarFish.States
             AddTexture(PalmTree);
             var buttonTexture = _content.Load<Texture2D>("Ship_back");
             var buttonFont = _content.Load<SpriteFont>("Font");
-            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
+            
 
             var backStageButton = new Button(buttonTexture, buttonFont)
             {
                 Position = Vector2.Zero, //position of the traveling boat
 
             };
-            var fishingButton = new Button(fishingRodTexture, buttonFont)
-            {
-                Position = new Vector2(100, 0) //position of the fishingButton
-            };
+            
             backStageButton.Click += BackStageButton_Click;
             _component = new List<Component>()
             {
                 backStageButton,
-                fishingButton,
+                
             };
 
 
@@ -128,11 +125,7 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
         }
-        private void FishingButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
@@ -140,7 +133,7 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
-            hooked.Fishing(gameTime);
+            hooked.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 _gameWorld.ChangeState(new EndScreen(_gameWorld, _graphichsDevice, _content));

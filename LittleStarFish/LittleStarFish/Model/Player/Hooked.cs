@@ -136,8 +136,8 @@ namespace LittleStarFish
 
             public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            spriteBatch.DrawString(Font,"score :" + score, new Vector2(2, 2), Color.White);
+            
+            
             if (hookingfish == true)
             {
                 
@@ -146,7 +146,7 @@ namespace LittleStarFish
                 
                 
             }
-            spriteBatch.End();
+            
         }
     }
 }

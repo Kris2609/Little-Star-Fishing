@@ -13,7 +13,6 @@ namespace LittleStarFish.States
 {
     public class Lake : State
     {
-        Hooked hooked;
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
@@ -92,11 +91,11 @@ namespace LittleStarFish.States
             {
                 Position = new Vector2(100, 0) //position of the fishingButton
             };
-            fishingButton.Click += FishingButton_Click;
+            
             _component = new List<Component>()
             {
                 nextStageButton,
-                fishingButton,
+                
             };
         }
         
@@ -133,13 +132,6 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
         }
-
-        private void FishingButton_Click(GameTime gameTime,object sender, EventArgs e)
-        {
-
-           
-
-        }
         
         public override void PostUpdate(GameTime gameTime)
         {
@@ -149,7 +141,7 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
-            hooked.Fishing(gameTime);
+            hooked.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 _gameWorld.ChangeState(new EndScreen(_gameWorld,_graphichsDevice,_content));
