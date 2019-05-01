@@ -60,14 +60,12 @@ namespace LittleStarFish
         private void UserNameButton_Click(object sender, EventArgs e)
         {
 
-            Console.WriteLine("");
-            Console.ReadLine();
+            _gameWorld.ChangeState(new UserName(_gameWorld, _graphichsDevice, _content));
         }
         private void PassWordButton_Click(object sender, EventArgs e)
         {
 
-            Console.Write("");
-            Console.ReadLine();
+            _gameWorld.ChangeState(new Password(_gameWorld, _graphichsDevice, _content));
         }
         private void QuitButton_Click(object sender, EventArgs e)
         {

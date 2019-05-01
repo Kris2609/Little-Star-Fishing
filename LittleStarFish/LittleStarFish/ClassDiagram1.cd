@@ -101,8 +101,22 @@
   <Class Name="LittleStarFish.Login">
     <Position X="12.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAEAAAAAAgAAAABAAAAAAAAAABAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAEAAAAAAgAAAABAAAAAAAAAABAAAAiAAAAACAA=</HashCode>
       <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.Password">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAgAAAABAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.UserName">
+    <Position X="10.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAgAAAABAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserName.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

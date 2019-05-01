@@ -133,20 +133,17 @@ namespace LittleStarFish
 
             
         }
-
-            public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            
-            
             if (hookingfish == true)
             {
-                
-             spriteBatch.Draw(texture, position, Color.White);
-            spriteBatch.Draw(hooktexture, hookposition, Color.White);
-                
-                
+
+                spriteBatch.Draw(texture, position, Color.White);
+                spriteBatch.Draw(hooktexture, hookposition, Color.White);
             }
-            
+
         }
+
+
     }
 }
