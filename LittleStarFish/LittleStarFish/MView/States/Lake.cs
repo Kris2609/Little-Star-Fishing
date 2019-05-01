@@ -12,6 +12,7 @@ namespace LittleStarFish.States
 {
     public class Lake : State
     {
+        Hooked hooked;
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
@@ -127,8 +128,8 @@ namespace LittleStarFish.States
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
         }
-        
-        private void FishingButton_Click(object sender, EventArgs e)
+
+        private void FishingButton_Click(GameTime gameTime,object sender, EventArgs e)
         {
             
         }
