@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LittleStarFish.MView.States;
+using LittleStarFish.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,7 +13,6 @@ namespace LittleStarFish
     public class Hooked
     {
         public int score;
-        
         private Controller controller = new Controller();
         protected GameWorld _gameworld;
         
@@ -29,6 +29,7 @@ namespace LittleStarFish
         private int speed;
         private bool hittop;
         SpriteFont Font;
+        
         
 
         public void LoadContent(ContentManager Content)
@@ -162,8 +163,8 @@ namespace LittleStarFish
         }
         public void drawScore(SpriteBatch spriteBatch)
         {
+
             
-            spriteBatch.DrawString(Font, "player name", new Vector2(1735, 0), Color.Red);
             spriteBatch.DrawString(Font, "" + score , new Vector2(1735, 20), Color.Red);
             
         }

@@ -201,7 +201,7 @@ namespace LittleStarFish.States
                 spritebatch.Draw(DecorationShip, new Vector2(325, 930), Color.White);
                 spritebatch.Draw(DecorationShip, new Vector2(200, 930), Color.White);
             }
-           
+            player.Draw(spritebatch);
            
             spritebatch.End();
         }

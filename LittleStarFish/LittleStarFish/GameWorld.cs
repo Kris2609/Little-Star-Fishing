@@ -37,7 +37,7 @@ namespace LittleStarFish
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = Width;
             graphics.PreferredBackBufferHeight = Height;
-
+            
 
         }
 
@@ -49,6 +49,7 @@ namespace LittleStarFish
         /// </summary>
         protected override void Initialize()
         {
+
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
             base.Initialize();
@@ -61,8 +62,7 @@ namespace LittleStarFish
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-
-           
+            
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hooked.LoadContent(Content);
             
@@ -96,6 +96,7 @@ namespace LittleStarFish
             
             timeSinceStart += gameTime.ElapsedGameTime;
             time = (int)timeSinceStart.Seconds;
+            
             hooked.Update(gameTime);
             #region switschase
 

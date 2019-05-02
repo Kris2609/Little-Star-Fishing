@@ -123,6 +123,7 @@ namespace LittleStarFish.States
                 component.Draw(gameTime, spritebatch);
             }
             spritebatch.Draw(_playerTexture,new Vector2(450,80), Color.White); //draws the player and his position
+            player.Draw(spritebatch);
             
             
             spritebatch.End();

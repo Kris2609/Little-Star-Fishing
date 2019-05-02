@@ -52,7 +52,7 @@
   <Class Name="LittleStarFish.Controller">
     <Position X="14.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAACAAAAAAAAAAAAAAACAAAAAgAAAAAAIIAA=</HashCode>
+      <HashCode>AAgCAIAAAACAAAAAEAAAAAAAAgCAAAAAgAAAAAAIIAA=</HashCode>
       <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="LittleStarFish.Model">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAgAAAAAACAAAAAAAAACAAAAAIAg=</HashCode>
+      <HashCode>AAAAABABABAAAAgAAgAAAAAACAAAAAAAAACEAAAAIAg=</HashCode>
       <FileName>Model\Model.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,13 +82,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Bruger.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LittleStarFish.Hooked">
-    <Position X="8.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAQAAAgAAAoEAAAAIIAAhQAQAAwAAAABAAAACAUQ=</HashCode>
-      <FileName>Model\Player\Hooked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Fishing">
@@ -108,15 +101,22 @@
   <Class Name="LittleStarFish.Password">
     <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAAgAAAABAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAwIAEAAAACAAgABAABAAAAAAAIAABAAABAAAgAAAAA=</HashCode>
       <FileName>Password.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.UserName">
     <Position X="10.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAAgAAAABAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAwIAEAAAAGAAgAAAABAAAAAAAIAABAAAQAAAAEAAAA=</HashCode>
       <FileName>UserName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LittleStarFish.Hooked">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAyAAAgAAAoEAAAAIICAhQAQAAwAAAABAAAACAUQ=</HashCode>
+      <FileName>Model\Player\Hooked.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

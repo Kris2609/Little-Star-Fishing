@@ -10,9 +10,11 @@ namespace LittleStarFish
 {
     public class Player : GameObject
     {
-        private int point;
+        
         private Texture2D playersprite;
         public int score;
+        SpriteFont Font;
+        
         
         
         private string name;
@@ -22,7 +24,7 @@ namespace LittleStarFish
 
         public Player(Texture2D playersprite, string textureName, ContentManager Content, Vector2 position) : base(textureName,Content,position)
         {
-            
+            Font = Content.Load<SpriteFont>("Font");
             this.playersprite = playersprite;
             this.name = "Bob";
             this.position = new Vector2(325, 50);
@@ -34,8 +36,9 @@ namespace LittleStarFish
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-
-            spriteBatch.Draw(playersprite, position, Color.White);
+            
+            //spriteBatch.Draw(playersprite, position, Color.White);
+            spriteBatch.DrawString(Font, $"Name: {Name}", new Vector2(1735, 0), Color.Red);
         }
 
     }
