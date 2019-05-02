@@ -92,11 +92,11 @@ namespace LittleStarFish.States
             {
                 Position = new Vector2(100, 0) //position of the fishingButton
             };
-            fishingButton.Click += FishingButton_Click;
+            
             _component = new List<Component>()
             {
                 nextStageButton,
-                fishingButton,
+                
             };
         }
         
