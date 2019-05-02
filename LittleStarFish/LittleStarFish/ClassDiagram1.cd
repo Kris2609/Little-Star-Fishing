@@ -73,7 +73,7 @@
   <Class Name="LittleStarFish.Player">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAACAAAAAAgAAAAAIAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAAAAAIAAQAAAAEAAAAAAAAAAACAAA=</HashCode>
       <FileName>Model\Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,13 +82,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Bruger.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LittleStarFish.Fishing">
-    <Position X="8.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Player\Fishing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Login">

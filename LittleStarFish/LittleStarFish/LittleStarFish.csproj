@@ -53,7 +53,6 @@
     <Compile Include="Model\Bruger.cs" />
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\Bait\DeadBait.cs" />
-    <Compile Include="Model\Player\Fishing.cs" />
     <Compile Include="Model\Fish.cs" />
     <Compile Include="Controller\Fish\FreshWaterFish.cs" />
     <Compile Include="GameObject.cs" />

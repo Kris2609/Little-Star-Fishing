@@ -21,7 +21,13 @@ namespace LittleStarFish
 
         public string Name { get => name; set => name = value; }
 
-
+        /// <summary>
+        /// The players Constructor
+        /// </summary>
+        /// <param name="playersprite"></param>
+        /// <param name="textureName"></param>
+        /// <param name="Content"></param>
+        /// <param name="position"></param>
         public Player(Texture2D playersprite, string textureName, ContentManager Content, Vector2 position) : base(textureName,Content,position)
         {
             Font = Content.Load<SpriteFont>("Font");
@@ -34,6 +40,10 @@ namespace LittleStarFish
         {
            
         }
+        /// <summary>
+        /// Draws the player stat
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public override void Draw(SpriteBatch spriteBatch)
         {
             

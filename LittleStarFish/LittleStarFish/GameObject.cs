@@ -24,7 +24,12 @@ namespace LittleStarFish
         {
             get { return position; }
         }
-
+        /// <summary>
+        /// The GameObjects Constructor
+        /// </summary>
+        /// <param name="textureName"></param>
+        /// <param name="Content"></param>
+        /// <param name="position"></param>
         public GameObject(string textureName,ContentManager Content,Vector2 position)
         {
             this.Content = Content;
@@ -38,6 +43,10 @@ namespace LittleStarFish
         {
             this.center = new Vector2(position.X + texture.Width / 2, position.Y + texture.Height / 2);
         }
+        /// <summary>
+        /// Draws the GameObject
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, Color.White);

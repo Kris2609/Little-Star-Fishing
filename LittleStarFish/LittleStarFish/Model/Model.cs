@@ -12,21 +12,29 @@ namespace LittleStarFish
     public class Model
     {
         private SQLiteConnection m_dbConnection;
-        private const String CONNECTIONSTRING = @"Data Source=testtabel.db;version=3";
+        private const String CONNECTIONSTRING = @"Data Source=testtabel.db;version=3"; //Acces the DataBase
         public SpriteFont textFont;
 
-
+        /// <summary>
+        /// The Constructor of the model
+        /// </summary>
         public Model()
         {
             m_dbConnection = new SQLiteConnection(CONNECTIONSTRING);
             m_dbConnection.Open();
         }
+        /// <summary>
+        /// Constructs the HighScore in DataBase
+        /// </summary>
         public void highscoreStructure()
         {
             string sql = "CREATE TABLE IF NOT EXISTS highscores (id INTEGER PRIMARY KEY ASC,name VARCHAR(20), score INT)";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
         }
+        /// <summary>
+        /// Fills the HighScore in DataBase
+        /// </summary>
         public void fillHighscoreTable()
         {
             SQLiteCommand cmd = m_dbConnection.CreateCommand();
@@ -37,6 +45,10 @@ namespace LittleStarFish
             cmd.CommandText = "INSERT INTO highscores (id,name, score) VALUES(NULL,'Bob', 2500)";
             cmd.ExecuteNonQuery();
         }
+        /// <summary>
+        /// Get the HighScore from the DataBase
+        /// </summary>
+        /// <returns></returns>
         public String getHighscore()
         {
             String sqlexpHeigscore = "SELECT * FROM highscores ORDER BY score DESC;";
@@ -55,13 +67,19 @@ namespace LittleStarFish
             }
             return sqlHigscore;
         }
-
+        /// <summary>
+        /// Get a new Score for a player
+        /// </summary>
         public void newPlayerScore()
         {
             SQLiteCommand cmd = m_dbConnection.CreateCommand();
             cmd.CommandText = "INSERT INTO highscores (id,name, score) VALUES(NULL,'Player', 0)";
             cmd.ExecuteNonQuery();
         }
+        /// <summary>
+        /// Get a new HighScore
+        /// </summary>
+        /// <returns></returns>
         public String getNewHighScore()
         {
             String sqlexpPlayerscore = "SELECT * FROM highscores ORDER BY id DESC LIMIT 1;";
@@ -79,6 +97,10 @@ namespace LittleStarFish
             }
             return sqlPlayerscore;
         }
+        /// <summary>
+        /// Get the Best HighScore
+        /// </summary>
+        /// <returns></returns>
         public String getBestHeighscore()
         {
             String sqlexpPlayerscore = "SELECT * FROM highscores ORDER BY score DESC LIMIT 1;";
@@ -96,6 +118,10 @@ namespace LittleStarFish
             }
             return sqlPlayerscore;
         }
+        /// <summary>
+        /// Update Score
+        /// </summary>
+        /// <returns></returns>
         public String getUpdateNewScore()
         {
             String sqlexpPlayerscore = "SELECT score FROM highscores ORDER BY id DESC LIMIT 1;";

@@ -14,15 +14,23 @@ namespace LittleStarFish.States
     {
        protected new GameWorld _gameWorld;   
         private enum gameState {Lake, Sea, Dock, EndScreen }
-        gameState currentState = gameState.Lake; //set the default state
-        Hooked hooked;
+        private gameState currentState = gameState.Lake; //set the default state
         public int Points { get; private set; }
-
+        /// <summary>
+        /// The GameStates Constructor
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public GameState(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             _gameWorld = gameWorld;
         }
-
+        /// <summary>
+        /// Draws the GS
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spriteBatch"></param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             #region States test
@@ -60,12 +68,18 @@ namespace LittleStarFish.States
             }
             #endregion
         }
-
+        /// <summary>
+        /// PostUpdate GS
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void PostUpdate(GameTime gameTime)
         {
             
         }
-
+        /// <summary>
+        /// Update the GS
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             #region switschase

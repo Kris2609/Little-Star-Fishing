@@ -17,9 +17,6 @@ namespace LittleStarFish
         public int score;
         private TimeSpan timeSinceStart;
         Hooked hooked = new Hooked();
-        Texture2D _playerTexture;
-        Player player;
-        SpriteFont Font;
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;

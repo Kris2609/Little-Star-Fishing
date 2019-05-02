@@ -11,7 +11,9 @@ namespace LittleStarFish
         Model model;
         Bait bait;
         Fish fish;
-
+        /// <summary>
+        /// The Controllers Constructor
+        /// </summary>
         public Controller()
         {
             model = new Model();
@@ -28,14 +30,17 @@ namespace LittleStarFish
 
 
         }
+        //Get the games HighScore
         public String getHighscore()
         {
             return model.getHighscore();
         }
+        //Get the games BaitTabel
         public String getBait()
         {
             return bait.getBait();
         }
+        //Get the games FishScore
         public string getFish(int id)
         {
             return fish.getscore(id);

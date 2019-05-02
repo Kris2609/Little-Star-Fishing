@@ -13,15 +13,12 @@ namespace LittleStarFish.States
 {
     public class Lake : State
     {
-        Hooked hooked;
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
        
-        
         private List<Component> _component;
-        
-
+        //Tilemap of Lake Map
         int[,] map = new int[,]
        {
             {0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -42,8 +39,6 @@ namespace LittleStarFish.States
             {1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1},
 
-
-
        };
         public int GetIndex(int cellX, int cellY)
         {
@@ -53,21 +48,29 @@ namespace LittleStarFish.States
             return map[cellY, cellX];
         }
         private List<Texture2D> tileTextures = new List<Texture2D>();
+        //add Textures to the lake map
         public void AddTexture(Texture2D texture)
         {
             tileTextures.Add(texture);
         }
+        //The Width of Lake map
         public int Width
         {
             get { return map.GetLength(1); }
 
         }
+        //Height of Lake map
         public int Height
         {
             get { return map.GetLength(0); }
         }
         
-
+        /// <summary>
+        /// Lakes Constructor
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public Lake(GameWorld gameWorld,GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             Font = content.Load<SpriteFont>("Font");
@@ -80,18 +83,13 @@ namespace LittleStarFish.States
             AddTexture(lakeground);
             var buttonTexture = _content.Load<Texture2D>("Ship");
             var buttonFont = _content.Load<SpriteFont>("Font");
-            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
-
+            
             var nextStageButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(50, 0), //position of the traveling boat
                 
             };
             nextStageButton.Click += NextStageButton_Click;
-            var fishingButton = new Button(fishingRodTexture, buttonFont)
-            {
-                Position = new Vector2(100, 0) //position of the fishingButton
-            };
             
             _component = new List<Component>()
             {
@@ -99,9 +97,11 @@ namespace LittleStarFish.States
                 
             };
         }
-        
-
-
+        /// <summary>
+        /// Draws the Lake
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spritebatch"></param>
         public override void Draw(GameTime gameTime,SpriteBatch spritebatch)
         {
             spritebatch.Begin();
@@ -122,23 +122,19 @@ namespace LittleStarFish.States
             {
                 component.Draw(gameTime, spritebatch);
             }
-            spritebatch.Draw(_playerTexture,new Vector2(450,80), Color.White); //draws the player and his position
-            player.Draw(spritebatch);
-            
+            //Draws the player
+            {
+                spritebatch.Draw(_playerTexture, new Vector2(450, 80), Color.White); //draws the player and his position
+                player.Draw(spritebatch);
+            }
             
             spritebatch.End();
         }
+        //Allows a NextStage Event to happen
         private void NextStageButton_Click(object sender, EventArgs e)
         {
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
-        }
-
-        private void FishingButton_Click(GameTime gameTime,object sender, EventArgs e)
-        {
-
-           
-
         }
         
         public override void PostUpdate(GameTime gameTime)
@@ -146,7 +142,10 @@ namespace LittleStarFish.States
             
             //remove sprite if they are not needen no more
         }
-
+        /// <summary>
+        /// Update the lake map
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             

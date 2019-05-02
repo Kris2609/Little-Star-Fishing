@@ -31,7 +31,10 @@ namespace LittleStarFish
         SpriteFont Font;
         
         
-
+        /// <summary>
+        /// Load the content of hooked level
+        /// </summary>
+        /// <param name="Content"></param>
         public void LoadContent(ContentManager Content)
         {
             texture = Content.Load<Texture2D>("hooking");
@@ -39,15 +42,25 @@ namespace LittleStarFish
             Font = Content.Load<SpriteFont>("Font");
             HP = 200;
         }
-        
+        /// <summary>
+        /// Let the minigame move up
+        /// </summary>
+        /// <param name="gametime"></param>
         public void Moveup(GameTime gametime)
         {
             position.Y += speed;
         }
+        /// <summary>
+        /// Let the minigame move down
+        /// </summary>
+        /// <param name="gametime"></param>
         private void Movedown(GameTime gametime)
         {
             position.Y -= speed;
         }
+        /// <summary>
+        /// draws the Collisonbox for the hook
+        /// </summary>
         public  Rectangle CollisionBoxhook
         {
             get
@@ -55,6 +68,9 @@ namespace LittleStarFish
                 return new Rectangle((int)hookposition.X, (int)hookposition.Y, hooktexture.Width, hooktexture.Height);
             }
         }
+        /// <summary>
+        /// Draws the Collisionbox
+        /// </summary>
         public  Rectangle CollisionBox
         {
             get
@@ -62,6 +78,10 @@ namespace LittleStarFish
                return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             }
         }
+        /// <summary>
+        /// Allows the player to fish
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void Fishing(GameTime gameTime)
         {
             if (CollisionBox.Intersects(CollisionBoxhook))
@@ -151,7 +171,6 @@ namespace LittleStarFish
             public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            //spriteBatch.DrawString(Font,"score :" + score, new Vector2(2, 2), Color.White);
             if (hookingfish == true)
             {
              spriteBatch.Draw(texture, position, Color.White);
@@ -163,10 +182,7 @@ namespace LittleStarFish
         }
         public void drawScore(SpriteBatch spriteBatch)
         {
-
-            
             spriteBatch.DrawString(Font, "" + score , new Vector2(1735, 20), Color.Red);
-            
         }
     }
 }
