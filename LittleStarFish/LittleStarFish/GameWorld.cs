@@ -14,8 +14,12 @@ namespace LittleStarFish
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public int score;
         private TimeSpan timeSinceStart;
         Hooked hooked = new Hooked();
+        Texture2D _playerTexture;
+        Player player;
+        SpriteFont Font;
         private float time;
         public static int Width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         public static int Height = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -57,7 +61,8 @@ namespace LittleStarFish
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-          
+
+           
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hooked.LoadContent(Content);
             
@@ -88,10 +93,10 @@ namespace LittleStarFish
             }
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
-            hooked.Update(gameTime);
+            
             timeSinceStart += gameTime.ElapsedGameTime;
             time = (int)timeSinceStart.Seconds;
-
+            hooked.Update(gameTime);
             #region switschase
 
             //we use switch case to swap gamestates
@@ -163,6 +168,8 @@ namespace LittleStarFish
             base.Update(gameTime);
         }
 
+        
+
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -172,33 +179,8 @@ namespace LittleStarFish
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _currentState.Draw(gameTime,spriteBatch);
+
             hooked.Draw(spriteBatch);
-            #region States test
-
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
-            //spriteBatch.Begin();
-            //if (currentState == GameState.menuScreen)
-            //{
-            //    GraphicsDevice.Clear(Color.Red);
-            //}
-            //if (currentState == GameState.Lake)
-            //{
-            //    GraphicsDevice.Clear(Color.Green);
-            //}
-            //if (currentState == GameState.Dock)
-            //{
-            //    GraphicsDevice.Clear(Color.Brown);
-            //}
-            //if (currentState == GameState.Sea)
-            //{
-            //    GraphicsDevice.Clear(Color.Blue);
-            //}
-            //if (currentState == GameState.EndScreen)
-            //{
-            //    GraphicsDevice.Clear(Color.Black);
-            //}
-            #endregion
-
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

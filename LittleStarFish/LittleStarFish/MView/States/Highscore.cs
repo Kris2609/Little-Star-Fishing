@@ -14,7 +14,7 @@ namespace LittleStarFish.MView.States
    public class Highscore : State
     {
         private Controller controller;
-       
+        public int getscore;
         public SpriteFont textFont;
         
         public Highscore(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
@@ -29,7 +29,7 @@ namespace LittleStarFish.MView.States
         {
             
             spritebatch.Begin();
-            spritebatch.DrawString(textFont,controller.getHighscore(), Vector2.Zero, Color.Black);
+            spritebatch.DrawString(textFont,controller.getHighscore(),new Vector2(750,300), Color.Black);
             spritebatch.End();
         }
         public override void PostUpdate(GameTime gameTime)

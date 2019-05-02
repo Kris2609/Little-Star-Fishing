@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LittleStarFish.MView.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,8 +11,12 @@ namespace LittleStarFish
 {
     public class Hooked
     {
-        private Controller controller = new Controller();
         public int score;
+        
+        private Controller controller = new Controller();
+        protected GameWorld _gameworld;
+        
+        
         private static Vector2 position = new Vector2(200,300);
         private static Vector2 hookposition = new Vector2(200, 250);
         private static Texture2D texture;
@@ -24,6 +29,8 @@ namespace LittleStarFish
         private int speed;
         private bool hittop;
         SpriteFont Font;
+        
+
         public void LoadContent(ContentManager Content)
         {
             texture = Content.Load<Texture2D>("hooking");
@@ -54,7 +61,7 @@ namespace LittleStarFish
                return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             }
         }
-        public void Update(GameTime gameTime)
+        public void Fishing(GameTime gameTime)
         {
             if (CollisionBox.Intersects(CollisionBoxhook))
             {
@@ -62,26 +69,26 @@ namespace LittleStarFish
             }
             if (hookingfish == false)
             {
-               if (Keyboard.GetState().IsKeyDown(Keys.F))
-            {
-                hookingfish = true;
-                HP = 200;
-                position = new Vector2(200, 300);
-                hookposition = new Vector2(200, 250);
-                hittop = true;
-                timer = 10;
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    hookingfish = true;
+                    HP = 200;
+                    position = new Vector2(200, 300);
+                    hookposition = new Vector2(200, 250);
+                    hittop = true;
+                    timer = 10;
+                }
             }
-            }
-           
+
             if (hookingfish == true)
             {
                 if (Keyboard.GetState().IsKeyUp(Keys.W))
                 {
-                hookposition.Y += 2;
+                    hookposition.Y += 2;
                 }
                 if (Keyboard.GetState().IsKeyUp(Keys.S))
                 {
-                hookposition.Y -= 2;
+                    hookposition.Y -= 2;
                 }
 
                 if (hittop == true)
@@ -111,7 +118,7 @@ namespace LittleStarFish
                 {
                     wasfishingsucsesful = true;
                     hookingfish = false;
-                    
+
                 }
                 if (timer == 0)
                 {
@@ -121,32 +128,44 @@ namespace LittleStarFish
             }
             if (wasfishingsucsesful == true)
             {
-                
+
                 Random random = new Random();
                 int id = random.Next(1, 8);
                 int x = 0;
+                int y = 0;
                 int.TryParse(controller.getFish(id), out x);
-                score += x;
+                int.TryParse(controller.getPlayerScore(), out y);
+               score += x + y;
+                
                 wasfishingsucsesful = false;
             }
+        }
+        public void Update(GameTime gameTime)
+        {
 
+            Fishing(gameTime);
 
-            
         }
 
             public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.DrawString(Font,"score :" + score, new Vector2(2, 2), Color.White);
+            //spriteBatch.DrawString(Font,"score :" + score, new Vector2(2, 2), Color.White);
             if (hookingfish == true)
             {
-                
              spriteBatch.Draw(texture, position, Color.White);
             spriteBatch.Draw(hooktexture, hookposition, Color.White);
-                
-                
+          
             }
+            drawScore(spriteBatch);
             spriteBatch.End();
+        }
+        public void drawScore(SpriteBatch spriteBatch)
+        {
+            
+            spriteBatch.DrawString(Font, "player name", new Vector2(1735, 0), Color.Red);
+            spriteBatch.DrawString(Font, "" + score , new Vector2(1735, 20), Color.Red);
+            
         }
     }
 }
