@@ -19,17 +19,20 @@ namespace LittleStarFish
             model = new Model();
             bait = new Bait();
             fish = new Fish();
-            model.highscoreStructure();
-
-            //model.fillHighscoreTable();
-
-            bait.baitStructure();
-            //bait.fillBaitTable();
-            fish.fishStructure();
-            //fish.fillfishTable();
-
-
+            //Structure the Tables
+            {
+                model.highscoreStructure();
+                bait.baitStructure();
+                fish.fishStructure();
+            }
+            //Fill the Tables
+            {
+                //bait.fillBaitTable();
+                //model.fillHighscoreTable();
+                //fish.fillfishTable();
+            }
         }
+
         //Get the games HighScore
         public String getHighscore()
         {
