@@ -31,7 +31,7 @@ namespace LittleStarFish.Controles
             }
         }
         public string Text { get; set; }
-
+        
         #endregion
         #region methods
         public Button(Texture2D texture, SpriteFont font)
