@@ -56,32 +56,38 @@ namespace LittleStarFish
         }
         public void Update(GameTime gameTime)
         {
+            Fishing(gameTime);
+
+        }
+
+        private void Fishing(GameTime gameTime)
+        {
             if (CollisionBox.Intersects(CollisionBoxhook))
             {
                 HP--;
             }
             if (hookingfish == false)
             {
-               if (Keyboard.GetState().IsKeyDown(Keys.F))
-            {
-                hookingfish = true;
-                HP = 200;
-                position = new Vector2(200, 300);
-                hookposition = new Vector2(200, 250);
-                hittop = true;
-                timer = 10;
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    hookingfish = true;
+                    HP = 200;
+                    position = new Vector2(200, 300);
+                    hookposition = new Vector2(200, 250);
+                    hittop = true;
+                    timer = 10;
+                }
             }
-            }
-           
+
             if (hookingfish == true)
             {
                 if (Keyboard.GetState().IsKeyUp(Keys.W))
                 {
-                hookposition.Y += 2;
+                    hookposition.Y += 2;
                 }
                 if (Keyboard.GetState().IsKeyUp(Keys.S))
                 {
-                hookposition.Y -= 2;
+                    hookposition.Y -= 2;
                 }
 
                 if (hittop == true)
@@ -111,7 +117,7 @@ namespace LittleStarFish
                 {
                     wasfishingsucsesful = true;
                     hookingfish = false;
-                    
+
                 }
                 if (timer == 0)
                 {
@@ -121,7 +127,7 @@ namespace LittleStarFish
             }
             if (wasfishingsucsesful == true)
             {
-                
+
                 Random random = new Random();
                 int id = random.Next(1, 8);
                 int x = 0;
@@ -129,12 +135,11 @@ namespace LittleStarFish
                 score += x;
                 wasfishingsucsesful = false;
             }
-
-
-            
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             if (hookingfish == true)
             {
 
