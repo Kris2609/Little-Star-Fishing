@@ -18,14 +18,14 @@ namespace LittleStarFish
             bait = new Bait();
             fish = new Fish();
             model.highscoreStructure();
-           
+
             //model.fillHighscoreTable();
-            
+
             bait.baitStructure();
             //bait.fillBaitTable();
             fish.fishStructure();
             //fish.fillfishTable();
-            
+
 
         }
         public String getHighscore()
@@ -39,6 +39,23 @@ namespace LittleStarFish
         public string getFish(int id)
         {
             return fish.getscore(id);
+        }
+        
+        public String getNewHighscore()
+        {
+            return model.getNewHighScore();
+        }
+        public void newPlayer()
+        {
+            model.newPlayerScore();
+        }
+        public String getBestscore()
+        {
+            return model.getBestHeighscore();
+        }
+        public String getPlayerScore()
+        {
+           return model.getUpdateNewScore();
         }
     }
 }

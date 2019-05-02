@@ -14,14 +14,19 @@ namespace LittleStarFish.MView.States
 {
     class EndScreen : State
     {
+        private Controller controller;
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
-
+        private Hooked hooked;
+        public int getscore { get { return hooked.score; } }
+        
+        
         private List<Component> _component;
 
         public EndScreen(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
+            controller = new Controller();
             Font = content.Load<SpriteFont>("Font");
             player = new Player(_playerTexture, "Fisher_Bob", content, new Vector2(500, 60));
             var buttonTexture = _content.Load<Texture2D>("Button");
@@ -50,16 +55,16 @@ namespace LittleStarFish.MView.States
         }
         public override void Draw(GameTime gameTime, SpriteBatch spritebatch)
         {
+            
             spritebatch.Begin();
-            spritebatch.DrawString(Font, $"Current Top Highscore: {0}", new Vector2(600, 400), Color.White);
-            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(600, 500), Color.White);
+            spritebatch.DrawString(Font, "Best score" + controller.getBestscore(), new Vector2(600, 400), Color.White);
+            spritebatch.DrawString(Font, "you'r score" + controller.getNewHighscore(), new Vector2(600, 500), Color.White);
             foreach (var component in _component)
             {
                 component.Draw(gameTime, spritebatch);
             }
             
-            spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
-            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
+           
             spritebatch.End();
         }
         public override void PostUpdate(GameTime gameTime)

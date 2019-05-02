@@ -15,7 +15,7 @@ namespace LittleStarFish.States
         protected ContentManager _content;
         protected GraphicsDevice _graphichsDevice;
         protected GameWorld _gameWorld;
-        
+       
 
         #endregion
 
@@ -27,6 +27,7 @@ namespace LittleStarFish.States
             _gameWorld = gameWorld;
             _graphichsDevice = graphicsDevice;
             _content = content;
+            
         }
         public abstract void Update(GameTime gameTime);
         #endregion

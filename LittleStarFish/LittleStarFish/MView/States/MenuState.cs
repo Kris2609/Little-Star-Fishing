@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,17 @@ namespace LittleStarFish.States
 {
     public class MenuState : State
     {
-
+       private Controller controller = new Controller();
         private List<Component> _component;
-
+        Hooked hooked;
         public MenuState(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             var buttonTexture = _content.Load<Texture2D>("Button");
             var buttonFont = _content.Load<SpriteFont>("Font");
-
+            
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300,200),
+                Position = new Vector2(700,200),
                 Text = "New Game",
             };
             newGameButton.Click += NewGameButton_Click;
@@ -31,13 +32,13 @@ namespace LittleStarFish.States
             
             var highScorreButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 400),
+                Position = new Vector2(700, 400),
                 Text = "HighScore",
             };
             highScorreButton.Click += highScorreButton_Click;
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 600),
+                Position = new Vector2(700, 600),
                 Text = "Quit",
             };
             quitGameButton.Click += QuitGameButton_Click;
@@ -64,7 +65,7 @@ namespace LittleStarFish.States
         
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            
+            controller.newPlayer();
             _gameWorld.ChangeState(new Lake(_gameWorld,_graphichsDevice,_content));
         }
         private void highScorreButton_Click(object sender, EventArgs e)

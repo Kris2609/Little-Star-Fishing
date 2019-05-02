@@ -17,7 +17,7 @@ namespace LittleStarFish.States
         Player player;
         SpriteFont Font;
         Texture2D _playerTexture;
-        Hooked hooked = new Hooked();
+       
         
         private List<Component> _component;
         
@@ -123,9 +123,8 @@ namespace LittleStarFish.States
                 component.Draw(gameTime, spritebatch);
             }
             spritebatch.Draw(_playerTexture,new Vector2(450,80), Color.White); //draws the player and his position
-            spritebatch.DrawString(Font, $"{player.Name}", new Vector2(1735, 0), Color.Red);
-            spritebatch.DrawString(Font, $"Points: {0}", new Vector2(1735, 20), Color.Red);
-            hooked.Draw(spritebatch);
+            
+            
             spritebatch.End();
         }
         private void NextStageButton_Click(object sender, EventArgs e)
@@ -149,7 +148,7 @@ namespace LittleStarFish.States
 
         public override void Update(GameTime gameTime)
         {
-            hooked.Fishing(gameTime);
+            
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 _gameWorld.ChangeState(new EndScreen(_gameWorld,_graphichsDevice,_content));
