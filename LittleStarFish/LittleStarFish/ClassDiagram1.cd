@@ -21,34 +21,6 @@
       <FileName>Model\Bait.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LittleStarFish.LivingBait">
-    <Position X="6.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controller\Bait\LivingBait.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LittleStarFish.DeadBait">
-    <Position X="6.25" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controller\Bait\DeadBait.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LittleStarFish.SaltWaterFish">
-    <Position X="4" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controller\Fish\SaltWaterFish.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LittleStarFish.FreshWaterFish">
-    <Position X="4" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controller\Fish\FreshWaterFish.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="LittleStarFish.Controller">
     <Position X="14.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
@@ -56,17 +28,10 @@
       <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LittleStarFish.View">
-    <Position X="14.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MView\View.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="LittleStarFish.Model">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABABABAAAAgAAgAAAAAACAAAAAAAAACEAAAAIAg=</HashCode>
+      <HashCode>AAAAABABABAAAAgAAgAAAAAACAAAAACAAACEAAAAIAg=</HashCode>
       <FileName>Model\Model.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -88,21 +53,21 @@
     <Position X="12.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAEAAAAAAgAAAABAAAAAAAAAABAAAAiAAAAACAA=</HashCode>
-      <FileName>Login.cs</FileName>
+      <FileName>MView\States\Login.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Password">
     <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAwIAEAAAACAAgABAABAAAAAAAIAABAAABAAAgAAAAA=</HashCode>
-      <FileName>Password.cs</FileName>
+      <FileName>MView\States\Password.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.UserName">
     <Position X="10.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAwIAEAAAAGAAgAAAABAAAAAAAIAABAAAQAAAAEAAAA=</HashCode>
-      <FileName>UserName.cs</FileName>
+      <FileName>MView\States\UserName.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LittleStarFish.Hooked">
