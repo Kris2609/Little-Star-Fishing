@@ -14,9 +14,14 @@ namespace LittleStarFish.States
 {
     public class MenuState : State
     {
-       private Controller controller = new Controller();
+        private Controller controller = new Controller();
         private List<Component> _component;
-        Hooked hooked;
+        /// <summary>
+        /// The MenuStates Constructor
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public MenuState(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             var buttonTexture = _content.Load<Texture2D>("Button");
@@ -52,7 +57,11 @@ namespace LittleStarFish.States
             };
         }
         
-        
+        /// <summary>
+        /// Draws the MenuState
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spriteBatch"></param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
@@ -62,12 +71,13 @@ namespace LittleStarFish.States
             }
             spriteBatch.End();
         }
-        
+        //Makes a Newgamebutton
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             controller.newPlayer();
             _gameWorld.ChangeState(new Lake(_gameWorld,_graphichsDevice,_content));
         }
+        //Makes a Highscorebutton
         private void highScorreButton_Click(object sender, EventArgs e)
         {
 
@@ -77,7 +87,10 @@ namespace LittleStarFish.States
         {
            //remove sprite if they are not needen no more
         }
-
+        /// <summary>
+        /// Updates the MenuState
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             foreach (var component in _component)
@@ -85,6 +98,7 @@ namespace LittleStarFish.States
                 component.Update(gameTime);
             }
         }
+        //Makes a QuitGamebutton
         private void QuitGameButton_Click(object sender, EventArgs e)
         {
             _gameWorld.Exit();

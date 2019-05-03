@@ -15,15 +15,20 @@ namespace LittleStarFish.MView.States
     class EndScreen : State
     {
         private Controller controller;
-        Player player;
-        SpriteFont Font;
-        Texture2D _playerTexture;
+        private Player player;
+        private SpriteFont Font;
+        private Texture2D _playerTexture;
         private Hooked hooked;
         public int getscore { get { return hooked.score; } }
         
         
         private List<Component> _component;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public EndScreen(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             controller = new Controller();
@@ -48,11 +53,21 @@ namespace LittleStarFish.MView.States
                 
             };
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveScoreButton_Click(object sender, EventArgs e)
         {
 
            
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spritebatch"></param>
         public override void Draw(GameTime gameTime, SpriteBatch spritebatch)
         {
             
@@ -67,12 +82,19 @@ namespace LittleStarFish.MView.States
            
             spritebatch.End();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void PostUpdate(GameTime gameTime)
         {
 
             //remove sprite if they are not needen no more
         }
-
+        /// <summary>
+        /// Update the game from the EndScreen scene
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
            

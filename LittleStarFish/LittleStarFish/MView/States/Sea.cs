@@ -18,6 +18,7 @@ namespace LittleStarFish.States
         Player player;
       
         private List<Component> _component;
+        //Tile map of SeaLevel
         int[,] map = new int[,]
         {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -53,16 +54,23 @@ namespace LittleStarFish.States
         {
             tileTextures.Add(texture);
         }
+        //Width of the map
         public int Width
         {
             get { return map.GetLength(1); }
 
         }
+        //Hight of the map
         public int Height
         {
             get { return map.GetLength(0); }
         }
-
+        /// <summary>
+        /// The sea level Constructor
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public Sea(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             Font = content.Load<SpriteFont>("Font");
@@ -75,27 +83,28 @@ namespace LittleStarFish.States
             AddTexture(PalmTree);
             var buttonTexture = _content.Load<Texture2D>("Ship_back");
             var buttonFont = _content.Load<SpriteFont>("Font");
-            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
-
+            
             var backStageButton = new Button(buttonTexture, buttonFont)
             {
                 Position = Vector2.Zero, //position of the traveling boat
 
             };
-            var fishingButton = new Button(fishingRodTexture, buttonFont)
-            {
-                Position = new Vector2(100, 0) //position of the fishingButton
-            };
+            
             backStageButton.Click += BackStageButton_Click;
             _component = new List<Component>()
             {
                 backStageButton,
-                fishingButton,
+                
             };
 
 
 
         }
+        /// <summary>
+        /// Draw the Sea Level
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spritebatch"></param>
         public override void Draw(GameTime gameTime,SpriteBatch spritebatch)
         {
             spritebatch.Begin();
@@ -115,28 +124,33 @@ namespace LittleStarFish.States
                 {
                     component.Draw(gameTime, spritebatch);
                 }
-                spritebatch.Draw(_playerTexture, new Vector2(500,500), Color.White); //draws the player and his position
-
+                //Draws the player
+                {
+                    spritebatch.Draw(_playerTexture, new Vector2(500, 500), Color.White); //draws the player and his position
+                    player.Draw(spritebatch);
+                }
+                
             }
            
             
             spritebatch.End();
         }
+        //Enable a BackStageButton
         private void BackStageButton_Click(object sender, EventArgs e)
         {
 
             _gameWorld.ChangeState(new Dock(_gameWorld, _graphichsDevice, _content));
         }
-        private void FishingButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
         }
-
+        /// <summary>
+        /// Updates The sea level
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
            

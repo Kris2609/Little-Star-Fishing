@@ -11,31 +11,39 @@ namespace LittleStarFish
         Model model;
         Bait bait;
         Fish fish;
-        
+        /// <summary>
+        /// The Controllers Constructor
+        /// </summary>
         public Controller()
         {
             model = new Model();
             bait = new Bait();
             fish = new Fish();
-            model.highscoreStructure();
-
-            //model.fillHighscoreTable();
-
-            bait.baitStructure();
-            //bait.fillBaitTable();
-            fish.fishStructure();
-            //fish.fillfishTable();
-
-            
+            //Structure the Tables
+            {
+                model.highscoreStructure();
+                bait.baitStructure();
+                fish.fishStructure();
+            }
+            //Fill the Tables
+            {
+                //bait.fillBaitTable();
+                //model.fillHighscoreTable();
+                //fish.fillfishTable();
+            }
         }
+
+        //Get the games HighScore
         public String getHighscore()
         {
             return model.getHighscore();
         }
+        //Get the games BaitTabel
         public String getBait()
         {
             return bait.getBait();
         }
+        //Get the games FishScore
         public string getFish(int id)
         {
             return fish.getscore(id);
@@ -56,10 +64,6 @@ namespace LittleStarFish
         public String getPlayerScore()
         {
            return model.getUpdateNewScore();
-        }
-        public String UpdatePlayerScore()
-        {
-            return model.updatePlayerScore();
         }
     }
 }

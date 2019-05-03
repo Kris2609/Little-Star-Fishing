@@ -28,6 +28,9 @@ namespace LittleStarFish.States
         private Texture2D DecorationShip5;
         private Texture2D DecorationShip6;
         private List<Component> _component;
+        /// <summary>
+        /// Tile map of Dock map
+        /// </summary>
         int[,] map = new int[,]
         {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -58,19 +61,35 @@ namespace LittleStarFish.States
             return map[cellY, cellX];
         }
         private List<Texture2D> tileTextures = new List<Texture2D>();
+        /// <summary>
+        /// Add Textures to the map
+        /// </summary>
+        /// <param name="texture"></param>
         public void AddTexture(Texture2D texture)
         {
             tileTextures.Add(texture);
         }
+        /// <summary>
+        /// The width of the Dock level
+        /// </summary>
         public int Width
         {
             get { return map.GetLength(1); }
 
         }
+        /// <summary>
+        /// The Hight of the Dock level
+        /// </summary>
         public int Height
         {
             get { return map.GetLength(0); }
         }
+        /// <summary>
+        /// The Constructor of the Dock
+        /// </summary>
+        /// <param name="gameWorld"></param>
+        /// <param name="graphicsDevice"></param>
+        /// <param name="content"></param>
         public Dock(GameWorld gameWorld, GraphicsDevice graphicsDevice, ContentManager content) : base(gameWorld, graphicsDevice, content)
         {
             Texture2D water = content.Load<Texture2D>("water");
@@ -95,7 +114,6 @@ namespace LittleStarFish.States
             
             var buttonTexture = _content.Load<Texture2D>("Ship");
             var backbuttonTexture = _content.Load<Texture2D>("Ship_back");
-            var fishingRodTexture = _content.Load<Texture2D>("FishingRod");
             var buttonFont = _content.Load<SpriteFont>("Font");
             
             var nextStageButton = new Button(buttonTexture, buttonFont)
@@ -108,41 +126,41 @@ namespace LittleStarFish.States
                 Position = Vector2.Zero, //position of the traveling boat
 
             };
-            var fishingButton = new Button(fishingRodTexture, buttonFont)
-            {
-                Position = new Vector2(100, 0) //position of the fishingButton
-                
-            };
+            
             nextStageButton.Click += NextStageButton_Click;
             backStageButton.Click += BackStageButton_Click;
-            fishingButton.Click += FishingButton_Click;
+            
             _component = new List<Component>()
             {
                 nextStageButton,
                 backStageButton,
-                fishingButton,
                 
             };
 
             
         }
 
-       
+       /// <summary>
+       /// Allow a button to travel to the next state
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void NextStageButton_Click(object sender, EventArgs e)
         {
 
             _gameWorld.ChangeState(new Sea(_gameWorld, _graphichsDevice, _content));
         }
+        /// <summary>
+        /// Allows a Button to travel back to previous state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackStageButton_Click(object sender, EventArgs e)
         {
 
             _gameWorld.ChangeState(new Lake(_gameWorld, _graphichsDevice, _content));
         }
-                
-        private void FishingButton_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
         public override void PostUpdate(GameTime gameTime)
         {
             //remove sprite if they are not needen no more
@@ -163,6 +181,11 @@ namespace LittleStarFish.States
             }
             
         }
+        /// <summary>
+        /// Draws the Dock Level
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spritebatch"></param>
         public override void Draw(GameTime gameTime, SpriteBatch spritebatch)
         {
             spritebatch.Begin();
@@ -187,6 +210,7 @@ namespace LittleStarFish.States
             //draws the player and his position
             {
                 spritebatch.Draw(_playerTexture, new Vector2(325, 150), Color.White);
+                player.Draw(spritebatch);
             }
             //Draws The store
             {
@@ -201,7 +225,7 @@ namespace LittleStarFish.States
                 spritebatch.Draw(DecorationShip, new Vector2(325, 930), Color.White);
                 spritebatch.Draw(DecorationShip, new Vector2(200, 930), Color.White);
             }
-           
+            
            
             spritebatch.End();
         }
