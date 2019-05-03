@@ -28,7 +28,7 @@ namespace LittleStarFish
         public int HP { get; set; }
         private int speed;
         private bool hittop;
-        SpriteFont Font;
+        private SpriteFont Font;
         
         
         /// <summary>

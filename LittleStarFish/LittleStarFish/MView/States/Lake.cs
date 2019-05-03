@@ -13,13 +13,13 @@ namespace LittleStarFish.States
 {
     public class Lake : State
     {
-        Player player;
-        SpriteFont Font;
-        Texture2D _playerTexture;
+        private Player player;
+        private SpriteFont Font;
+        private Texture2D _playerTexture;
        
         private List<Component> _component;
         //Tilemap of Lake Map
-        int[,] map = new int[,]
+        private int[,] map = new int[,]
        {
             {0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},

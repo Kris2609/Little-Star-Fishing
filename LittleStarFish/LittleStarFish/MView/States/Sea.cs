@@ -13,13 +13,13 @@ namespace LittleStarFish.States
 {
     public class Sea : State
     {
-        SpriteFont Font;
-        Texture2D _playerTexture;
-        Player player;
+        private SpriteFont Font;
+        private Texture2D _playerTexture;
+        private Player player;
       
         private List<Component> _component;
         //Tile map of SeaLevel
-        int[,] map = new int[,]
+        private int[,] map = new int[,]
         {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},

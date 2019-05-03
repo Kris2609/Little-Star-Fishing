@@ -8,9 +8,9 @@ namespace LittleStarFish
 {
     public class Controller
     {
-        Model model;
-        Bait bait;
-        Fish fish;
+        private Model model;
+        private Bait bait;
+        private Fish fish;
         /// <summary>
         /// The Controllers Constructor
         /// </summary>

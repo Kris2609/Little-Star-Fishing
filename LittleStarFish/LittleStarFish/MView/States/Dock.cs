@@ -13,8 +13,8 @@ namespace LittleStarFish.States
 {
     public class Dock : State
     {
-        Player player;
-        SpriteFont Font;
+        private Player player;
+        private SpriteFont Font;
         private Texture2D _playerTexture;
         private Texture2D Store;
         
@@ -31,7 +31,7 @@ namespace LittleStarFish.States
         /// <summary>
         /// Tile map of Dock map
         /// </summary>
-        int[,] map = new int[,]
+        private int[,] map = new int[,]
         {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
