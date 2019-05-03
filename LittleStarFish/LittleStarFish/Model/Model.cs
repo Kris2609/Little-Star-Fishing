@@ -11,6 +11,7 @@ namespace LittleStarFish
 
     public class Model
     {
+
         private SQLiteConnection m_dbConnection;
         private const String CONNECTIONSTRING = @"Data Source=testtabel.db;version=3";
         public SpriteFont textFont;
@@ -99,6 +100,23 @@ namespace LittleStarFish
         public String getUpdateNewScore()
         {
             String sqlexpPlayerscore = "SELECT score FROM highscores ORDER BY id DESC LIMIT 1;";
+            SQLiteCommand cmd = new SQLiteCommand(sqlexpPlayerscore, m_dbConnection)
+            {
+                CommandText = sqlexpPlayerscore
+            };
+            SQLiteDataReader reader;
+            reader = cmd.ExecuteReader();
+
+            String sqlPlayerscore = "";
+            while (reader.Read())
+            {
+                sqlPlayerscore += reader["score"];
+            }
+            return sqlPlayerscore;
+        }
+        public String updatePlayerScore()
+        {
+            String sqlexpPlayerscore = "UPDATE highscores SET score = score + {value} ORDER BY id DESC LIMIT 1;";
             SQLiteCommand cmd = new SQLiteCommand(sqlexpPlayerscore, m_dbConnection)
             {
                 CommandText = sqlexpPlayerscore

@@ -11,7 +11,7 @@ namespace LittleStarFish
         Model model;
         Bait bait;
         Fish fish;
-
+        
         public Controller()
         {
             model = new Model();
@@ -26,7 +26,7 @@ namespace LittleStarFish
             fish.fishStructure();
             //fish.fillfishTable();
 
-
+            
         }
         public String getHighscore()
         {
@@ -56,6 +56,10 @@ namespace LittleStarFish
         public String getPlayerScore()
         {
            return model.getUpdateNewScore();
+        }
+        public String UpdatePlayerScore()
+        {
+            return model.updatePlayerScore();
         }
     }
 }
