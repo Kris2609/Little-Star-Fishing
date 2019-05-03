@@ -140,6 +140,10 @@ namespace LittleStarFish
             }
             return sqlPlayerscore;
         }
+        /// <summary>
+        /// Skulle updatatere player score løbende, men bliv ikke helt færdig da den ikke for valuen fra vores Hooked klasse.
+        /// </summary>
+        /// <returns></returns>
         public String updatePlayerScore()
         {
             String sqlexpPlayerscore = "UPDATE highscores SET score = score + {value} ORDER BY id DESC LIMIT 1;";
